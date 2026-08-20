@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Tooth extraction">
+  <ellipse cx="60" cy="88" rx="26" ry="9" fill="none" stroke="#0E9F9A" stroke-width="2.5" stroke-dasharray="2 5"/>
+  <g transform="translate(60,58)">
+    <path d="M-1,-33.5 C-17,-33.5 -27,-21.5 -25,-7.5 C-24,-0.5 -21,-3.5 -17,-1.5 C-15,-0.5 -15,2.5 -16,8.5 C-18,18.5 -16,28.5 -11,31.5 C-8,33.5 -6,30.5 -6,26.5 L-5,2.5 C-5,-0.5 3,-0.5 3,2.5 L4,26.5 C4,30.5 6,33.5 9,31.5 C14,28.5 16,18.5 14,8.5 C13,2.5 13,-0.5 15,-1.5 C19,-3.5 22,-0.5 23,-7.5 C25,-21.5 15,-33.5 -1,-33.5 Z" fill="#ffffff" stroke="#123B72" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+  <path d="M44,30 C40,20 40,12 46,6" fill="none" stroke="#0E9F9A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M76,30 C80,20 80,12 74,6" fill="none" stroke="#0E9F9A" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="46" y1="6" x2="52" y2="12" stroke="#0E9F9A" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="74" y1="6" x2="68" y2="12" stroke="#0E9F9A" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

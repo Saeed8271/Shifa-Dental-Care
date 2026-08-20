@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Dental implants">
+  <path d="M40,26 C40,13 48,5 60,5 C72,5 80,13 80,26 C74,21 67,26 60,21 C53,26 46,21 40,26 Z" fill="#ffffff" stroke="#123B72" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="53" y="26" width="14" height="10" fill="#ffffff" stroke="#123B72" stroke-width="3.5"/>
+  <path d="M56,36 L56,88 C56,92 64,92 64,88 L64,36 Z" fill="#ffffff" stroke="#123B72" stroke-width="4" stroke-linejoin="round"/>
+  <line x1="56" y1="46" x2="64" y2="46" stroke="#0E9F9A" stroke-width="3"/>
+  <line x1="56" y1="56" x2="64" y2="56" stroke="#0E9F9A" stroke-width="3"/>
+  <line x1="56" y1="66" x2="64" y2="66" stroke="#0E9F9A" stroke-width="3"/>
+  <line x1="56" y1="76" x2="64" y2="76" stroke="#0E9F9A" stroke-width="3"/>
+  <line x1="44" y1="94" x2="76" y2="94" stroke="#0E9F9A" stroke-width="4" stroke-linecap="round"/>
+</svg>

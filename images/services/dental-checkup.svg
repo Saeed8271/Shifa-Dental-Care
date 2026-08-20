@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Dental checkup">
+  <!-- Tooth -->
+  <path d="M60,30
+           C44,30 34,42 36,56
+           C37,63 40,60 44,62
+           C46,63 46,66 45,72
+           C43,82 45,92 50,95
+           C53,97 55,94 55,90
+           L56,66
+           C56,63 64,63 64,66
+           L65,90
+           C65,94 67,97 70,95
+           C75,92 77,82 75,72
+           C74,66 74,63 76,62
+           C80,60 83,63 84,56
+           C86,42 76,30 60,30 Z"
+        fill="#ffffff" stroke="#123B72" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Mirror handle -->
+  <line x1="101" y1="99" x2="80" y2="63" stroke="#0E9F9A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Mirror head -->
+  <circle cx="80" cy="55" r="11" fill="#ffffff" stroke="#0E9F9A" stroke-width="4"/>
+
+  <!-- Mirror reflection glint -->
+  <path d="M75,50 L79,54 M83,50 L79,54" stroke="#0E9F9A" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

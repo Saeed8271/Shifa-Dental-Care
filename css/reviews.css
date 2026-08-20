@@ -1,0 +1,497 @@
+/* =========================================================
+   REVIEWS.CSS
+   ---------------------------------------------------------
+   Review section styling and responsive slider behavior.
+
+   The sliding itself is controlled entirely by reviews.js
+   (it sets transform: translateX(...) on .reviews-slider-track
+   and advances it on a timer). This file only supplies:
+
+   - card / layout styling
+   - how many cards are visible at each breakpoint
+     (via .reviews-slider-slide's width)
+   - the transition used when the track moves
+   - the mobile dots
+
+   Desktop (>= 992px): 3 cards visible, group moves every 3.5s
+   Tablet (576-991px): 2 cards visible, group moves every 3.5s
+   Mobile (< 576px):   1 card visible, moves every 3s, swipeable
+   ========================================================= */
+
+
+/* =========================================================
+   REVIEWS SECTION
+   ========================================================= */
+
+.reviews-section {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   REVIEW SECTION INTRO
+   ========================================================= */
+
+.reviews-demo-note {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   REVIEWS VIEWPORT
+   ========================================================= */
+
+#reviews-grid {
+  width: 100%;
+  margin-top: 2.5rem;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   REVIEW TRACK
+   ---------------------------------------------------------
+   The existing reviews.js creates:
+
+   #reviews-grid
+      .reviews-slider
+         .reviews-slider-track
+            .reviews-slider-slide
+               .review-card
+            .reviews-slider-slide
+               .review-card
+            ...
+         (the whole list above repeats a second time, for a
+          seamless loop — see reviews.js)
+
+      .reviews-slider-dots
+   ========================================================= */
+
+.reviews-grid {
+  position: relative;
+}
+
+
+.reviews-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/*
+   The track is wider than the viewport (it holds the review
+   list twice) and reviews.js moves it in discrete steps by
+   setting transform: translateX(...). The transition below is
+   what makes each step glide instead of jumping.
+*/
+
+.reviews-slider-track {
+  display: flex;
+  align-items: stretch;
+  gap: 1.5rem;
+
+  width: max-content;
+
+  transform: translateX(0);
+  transition: transform 0.6s ease;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   REVIEW SLIDES
+   ---------------------------------------------------------
+   Slide width controls how many cards are visible at once,
+   which reviews.js reads at runtime — keep these in sync with
+   the cardsPerView() breakpoints in reviews.js (1 / 2 / 3).
+   ========================================================= */
+
+.reviews-slider-slide {
+  flex: 0 0 330px;
+  width: 330px;
+}
+
+
+/* =========================================================
+   REVIEW CARD
+   ========================================================= */
+
+.review-card {
+  position: relative;
+
+  height: 100%;
+  min-height: 245px;
+
+  padding: 1.75rem;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(13, 148, 136, 0.12);
+  border-radius: 1.25rem;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06);
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* Decorative quote mark */
+
+.review-card::before {
+  content: "“";
+
+  position: absolute;
+
+  top: 0.45rem;
+  right: 1.25rem;
+
+  font-family: Georgia, serif;
+  font-size: 4.5rem;
+  line-height: 1;
+
+  opacity: 0.08;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   REVIEW CARD HOVER
+   ========================================================= */
+
+.review-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 16px 38px rgba(15, 23, 42, 0.10);
+
+  border-color: rgba(13, 148, 136, 0.25);
+}
+
+
+/* =========================================================
+   STARS
+   ========================================================= */
+
+.review-card-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+
+  margin-bottom: 1rem;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.08rem;
+
+  color: #f59e0b;
+}
+
+
+/* =========================================================
+   REVIEW TEXT
+   ========================================================= */
+
+.review-card-text {
+  margin: 0;
+
+  color: var(--text-color, #334155);
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+
+  flex-grow: 1;
+}
+
+
+/* =========================================================
+   REVIEWER NAME
+   ========================================================= */
+
+.review-card-name {
+  margin: 1.35rem 0 0;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: var(--heading-color, #0f172a);
+}
+
+
+.review-card-name span {
+  font-family: "Inter", sans-serif;
+
+  font-size: 0.78rem;
+  font-weight: 400;
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   REVIEW DOTS
+   ---------------------------------------------------------
+   Hidden above mobile.
+   ========================================================= */
+
+.reviews-slider-dots {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ---------------------------------------------------------
+   576px – 991px — 2 cards visible at a time
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+  .reviews-slider-track {
+    gap: 1.25rem;
+  }
+
+
+  .reviews-slider-slide {
+    flex-basis: 300px;
+    width: 300px;
+  }
+
+
+  .review-card {
+    padding: 1.5rem;
+
+    min-height: 235px;
+  }
+
+
+  .review-card-text {
+    font-size: 0.9rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ---------------------------------------------------------
+   <576px — 1 card visible at a time, driven by reviews.js
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  #reviews-grid {
+    margin-top: 2rem;
+
+    overflow: hidden;
+  }
+
+
+  .reviews-slider {
+    width: 100%;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+  }
+
+
+  .reviews-slider-track {
+
+    /* Without an explicit width here the track falls back to
+       the desktop rule (width: max-content), which makes each
+       card's percentage width resolve unreliably on mobile and
+       can clip review text against the section's overflow:
+       hidden. Pin it to the viewport width and let each card
+       size itself to its own content instead of being
+       stretched to match the tallest card in the whole list. */
+    width: 100%;
+
+    align-items: flex-start;
+
+    gap: 0;
+
+  }
+
+
+  /* -------------------------------------------------------
+     ONE CARD PER SLIDE
+     ------------------------------------------------------- */
+
+  .reviews-slider-slide {
+
+    flex: 0 0 100%;
+
+    width: 100%;
+
+    min-width: 100%;
+
+    padding: 0 0.15rem;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE CARD
+     ------------------------------------------------------- */
+
+  .review-card {
+
+    /* Override the desktop height: 100% (stretch-to-match-
+       row) rule — on mobile each card should size itself to
+       its own text, not to whichever card in the list is
+       tallest. */
+    height: auto;
+
+    min-height: 250px;
+
+    padding: 1.5rem;
+
+    border-radius: 1.1rem;
+
+    box-shadow:
+      0 8px 25px rgba(15, 23, 42, 0.06);
+  }
+
+
+  .review-card:hover {
+
+    transform: none;
+
+    box-shadow:
+      0 8px 25px rgba(15, 23, 42, 0.06);
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE STARS
+     ------------------------------------------------------- */
+
+  .review-card-stars {
+
+    margin-bottom: 0.9rem;
+
+    font-size: 0.95rem;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE TEXT
+     ------------------------------------------------------- */
+
+  .review-card-text {
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE NAME
+     ------------------------------------------------------- */
+
+  .review-card-name {
+
+    margin-top: 1.2rem;
+
+    padding-top: 0.9rem;
+
+    font-size: 0.85rem;
+  }
+
+
+  .review-card-name span {
+
+    font-size: 0.74rem;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE DOTS
+     ------------------------------------------------------- */
+
+  .reviews-slider-dots {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.45rem;
+
+    margin-top: 1.25rem;
+  }
+
+
+  .reviews-slider-dots button {
+
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: rgba(15, 23, 42, 0.18);
+
+    cursor: pointer;
+
+    transition:
+      width 0.25s ease,
+      border-radius 0.25s ease,
+      background 0.25s ease;
+  }
+
+
+  .reviews-slider-dots button.active {
+
+    width: 22px;
+
+    border-radius: 999px;
+
+    background: var(--primary-color, #0d9488);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ---------------------------------------------------------
+   Respect users who prefer less animation. reviews.js still
+   moves the track on its timer, but the jump between pages
+   becomes instant instead of animated.
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reviews-slider-track {
+
+    transition: none !important;
+  }
+
+
+  .review-card {
+
+    transition: none !important;
+  }
+
+}

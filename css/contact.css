@@ -1,0 +1,364 @@
+/* =========================================================
+   CONTACT.CSS
+   Styles for the location/hours preview block, the contact
+   page's quick-contact cards, and the appointment form used
+   on the Contact page. Extracted from components.css — link
+   this file alongside components.css wherever these
+   components appear (contact.html and, since the location
+   preview is also used there, the homepage).
+   ========================================================= */
+
+
+/* =========================================================
+   LOCATION PREVIEW
+   ---------------------------------------------------------
+   Homepage location preview section.
+
+   Desktop:
+   - Details on the left
+   - Google Map on the right
+
+   Mobile:
+   - Section heading
+   - Address
+   - Opening hours
+   - Google Map
+   - Action buttons
+   ========================================================= */
+
+
+/* =========================================================
+   LOCATION PREVIEW - GRID
+   ========================================================= */
+
+.location-preview-grid {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-xl);
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - CONTENT
+   ========================================================= */
+
+.location-preview-content {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - HEADER
+   ========================================================= */
+
+.location-preview-header {
+  max-width: 760px;
+  margin-bottom: var(--space-xl);
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - LOCATION ITEMS
+   ---------------------------------------------------------
+   Used for:
+   - Address
+   - Opening Hours
+   ========================================================= */
+
+.location-preview-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: var(--space-lg);
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - ICON
+   ========================================================= */
+
+.location-preview-icon {
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-teal);
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - ITEM CONTENT
+   ========================================================= */
+
+.location-preview-item h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.location-preview-item p {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - OPENING HOURS
+   ========================================================= */
+
+.location-preview-hours {
+  margin-bottom: var(--space-lg);
+}
+
+
+/* =========================================================
+   HOURS TABLE
+   ========================================================= */
+
+.hours-table {
+  width: 100%;
+  max-width: 430px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+}
+
+.hours-table td {
+  padding: 0.2rem 0;
+  vertical-align: top;
+}
+
+.hours-table td:first-child {
+  padding-right: 1.5rem;
+  font-weight: 500;
+}
+
+.hours-table td:last-child {
+  text-align: left;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - ACTION BUTTONS
+   ========================================================= */
+
+.location-preview-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: var(--space-sm);
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - MAP
+   ========================================================= */
+
+.location-preview-map {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+}
+
+.location-preview-map iframe,
+.map-embed-wrap iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+
+/* =========================================================
+   LOCATION PREVIEW - MAP ALIGNMENT
+   ========================================================= */
+
+.location-preview-map iframe {
+  min-height: 320px;
+}
+
+
+/* ---------------------------------------------------------
+   Contact page layout
+   --------------------------------------------------------- */
+
+.contact-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.25rem;
+
+  margin-bottom: var(--space-xl);
+}
+
+
+.contact-info-card {
+  background-color: var(--color-white);
+
+  border-radius: var(--radius-lg);
+
+  padding: 1.5rem;
+
+  box-shadow: var(--shadow-soft);
+
+  text-align: center;
+}
+
+
+.contact-info-card i {
+  font-size: 1.6rem;
+
+  color: var(--color-teal);
+
+  margin-bottom: 0.5rem;
+
+  display: block;
+}
+
+
+.contact-info-card a {
+  color: var(--color-deep-blue);
+
+  font-weight: 600;
+}
+
+
+.hours-table {
+  width: 100%;
+
+  max-width: 420px;
+
+  border-collapse: collapse;
+}
+
+
+.hours-table td {
+  padding: 0.45rem 0;
+
+  font-size: 0.94rem;
+
+  border-bottom:
+    1px solid rgba(18, 59, 114, 0.08);
+}
+
+
+.hours-table td:first-child {
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  color: var(--color-deep-blue);
+}
+
+
+.hours-table td:last-child {
+  text-align: right;
+
+  color: var(--color-text-muted);
+}
+
+
+.hours-note {
+  font-size: 0.82rem;
+
+  color: var(--color-text-muted);
+
+  margin-top: 0.6rem;
+}
+
+
+/* ---------------------------------------------------------
+   Appointment form
+   --------------------------------------------------------- */
+
+.appointment-form .form-label {
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.85rem;
+
+  color: var(--color-deep-blue);
+}
+
+
+.appointment-form .form-control,
+.appointment-form .form-select {
+  border-radius: var(--radius-sm);
+
+  border-color:
+    rgba(18, 59, 114, 0.18);
+
+  padding: 0.55rem 0.75rem;
+}
+
+
+.appointment-form .form-control:focus,
+.appointment-form .form-select:focus {
+  border-color: var(--color-teal);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(14, 159, 154, 0.15);
+}
+
+
+.appointment-form-optional-tag {
+  font-weight: 400;
+
+  color: var(--color-text-muted);
+
+  text-transform: none;
+
+  letter-spacing: 0;
+
+  font-size: 0.78rem;
+}
+
+
+.appointment-form-success {
+  text-align: center;
+
+  padding: var(--space-md) 0;
+}
+
+
+.appointment-form-success i {
+  font-size: 2.4rem;
+
+  color: var(--color-teal);
+
+  display: block;
+
+  margin-bottom: var(--space-xs);
+}
+
+
+.back-to-options-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.35rem;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  margin-bottom: var(--space-sm);
+}

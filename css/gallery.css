@@ -1,0 +1,218 @@
+/* =========================================================
+   GALLERY.CSS
+   Styles for the gallery grid, lightbox modal, and the
+   mobile swipe slider variant used on the homepage gallery
+   preview section. Extracted from components.css.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Gallery grid + lightbox
+   --------------------------------------------------------- */
+
+.gallery-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+
+.gallery-item {
+  display: block;
+
+  width: 100%;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: var(--radius-md);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-soft);
+
+  cursor: pointer;
+
+  background: none;
+}
+
+
+.gallery-item img {
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+
+.gallery-lightbox .modal-content {
+  border: none;
+
+  background: transparent;
+
+  box-shadow: none;
+}
+
+
+.gallery-lightbox .modal-body {
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+}
+
+
+.gallery-lightbox img {
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+}
+
+
+.gallery-lightbox-close {
+  position: absolute;
+
+  top: -2.5rem;
+
+  right: 0;
+
+  filter:
+    invert(1)
+    grayscale(100%)
+    brightness(200%);
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   MOBILE GALLERY — SWIPE IMAGE SLIDER
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .gallery-preview-section .gallery-grid {
+    display: flex;
+
+    width: 100%;
+
+    gap: 0.75rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+
+    padding: 0;
+  }
+
+
+  .gallery-preview-section .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* -------------------------------------------------------
+     Individual Gallery Slide
+     ------------------------------------------------------- */
+
+  .gallery-preview-section .gallery-item {
+    flex: 0 0 100%;
+
+    width: 100%;
+
+    scroll-snap-align: center;
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-card);
+
+    overflow: hidden;
+  }
+
+
+  /* -------------------------------------------------------
+     Gallery Image
+     ------------------------------------------------------- */
+
+  .gallery-preview-section .gallery-item img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+  }
+
+
+  /* Disable desktop hover zoom on mobile */
+  .gallery-preview-section .gallery-item:hover img {
+    transform: none;
+  }
+
+
+  /* -------------------------------------------------------
+     Swipe Hint
+     ------------------------------------------------------- */
+
+  .gallery-swipe-hint {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    margin: 0.75rem 0 0;
+
+    color: var(--color-text-muted);
+
+    font-size: 0.78rem;
+
+    font-weight: 500;
+
+    line-height: 1.3;
+  }
+
+
+  .gallery-swipe-hint i {
+    color: var(--color-teal);
+
+    font-size: 0.85rem;
+  }
+
+
+  /* -------------------------------------------------------
+     View Full Gallery Button
+     ------------------------------------------------------- */
+
+  .gallery-preview-section .text-center {
+    margin-top: 1.25rem !important;
+  }
+
+}

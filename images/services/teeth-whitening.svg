@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Teeth whitening">
+  <path d="M60,30 C44,30 34,42 36,56 C37,63 40,60 44,62 C46,63 46,66 45,72 C43,82 45,92 50,95 C53,97 55,94 55,90 L56,66 C56,63 64,63 64,66 L65,90 C65,94 67,97 70,95 C75,92 77,82 75,72 C74,66 74,63 76,62 C80,60 83,63 84,56 C86,42 76,30 60,30 Z" fill="#ffffff" stroke="#123B72" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M46,42 C44,55 45,72 50,88" fill="none" stroke="#0E9F9A" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M88,28 L88,40 M82,34 L94,34" stroke="#0E9F9A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M27,48 L27,56 M23,52 L31,52" stroke="#0E9F9A" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M94,58 L94,64 M91,61 L97,61" stroke="#0E9F9A" stroke-width="2" stroke-linecap="round"/>
+</svg>

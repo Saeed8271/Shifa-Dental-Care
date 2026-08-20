@@ -1,0 +1,172 @@
+/* =========================================================
+   STYLE.CSS
+   Global design tokens, base typography, and foundational
+   styles for the Shifa Dental Care website.
+   This file should rarely need color/spacing values hardcoded
+   elsewhere — everything pulls from the CSS variables below.
+   ========================================================= */
+
+:root {
+  /* ---- Brand colors ---- */
+  --color-deep-blue: #123B72;
+  --color-teal: #0E9F9A;
+  --color-teal-light: #EAF8F7;
+  --color-white: #FFFFFF;
+  --color-section-bg: #F6FAFC;
+  --color-text-primary: #172B3A;
+  --color-text-muted: #5F6F7C;
+  --color-accent-orange: #F28C28;
+
+  /* ---- Fonts ---- */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-soft: 0 2px 20px rgba(18, 59, 114, 0.08);
+  --shadow-card: 0 6px 28px rgba(18, 59, 114, 0.10);
+
+  /* ---- Layout ---- */
+  --container-max: 1200px;
+
+  /* ---- Spacing scale ---- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+}
+
+/* ---------------------------------------------------------
+   Base element styles
+   --------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-deep-blue);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: var(--space-sm);
+}
+
+p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+a {
+  color: var(--color-teal);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-deep-blue);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------------------------------------------------------
+   Layout utilities
+   --------------------------------------------------------- */
+
+.site-section {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.site-section--muted {
+  background-color: var(--color-section-bg);
+}
+
+.site-container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+  margin-bottom: var(--space-xs);
+}
+
+/* ---------------------------------------------------------
+   Buttons (base — refined further in components.css)
+   --------------------------------------------------------- */
+
+.btn-clinic-primary {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-deep-blue);
+  color: var(--color-white);
+  border: none;
+}
+
+.btn-clinic-primary:hover {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+.btn-clinic-secondary {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: var(--color-deep-blue);
+  border: 1.5px solid var(--color-teal);
+}
+
+.btn-clinic-secondary:hover {
+  background-color: var(--color-teal-light);
+}
+
+/* ---------------------------------------------------------
+   Skip link (accessibility)
+   --------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--color-deep-blue);
+  color: var(--color-white);
+  padding: 0.75rem 1.25rem;
+  z-index: 2000;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+  left: var(--space-sm);
+  top: var(--space-sm);
+}

@@ -1,0 +1,132 @@
+/* =========================================================
+   TREATMENTS.CSS
+   Page-specific styles for treatments.html (and any
+   individual treatment detail page that reuses the same
+   .treatment-hero banner style, e.g. a future
+   treatment-detail.html for a single procedure).
+
+   Covers:
+     - .treatment-hero / .treatment-hero-icon   (intro banner —
+       used by treatments.html's own hero section)
+     - .treatment-breadcrumb                    (detail pages only)
+     - .treatment-body                          (detail pages only)
+     - .treatment-cta-box / .treatment-cta-actions (detail pages only)
+     - .treatment-related                       (detail pages only)
+
+   Dependencies still required from other stylesheets — do NOT
+   delete these from components.css / style.css, treatments.html
+   needs them too:
+     - .site-navbar / footer / mobile-action-bar   (components.css)
+     - .section-eyebrow, .hero-lead                (components.css)
+     - .service-grid, .service-card and friends    (components.css —
+       shared with the homepage's treatments PREVIEW grid, so it
+       stays in components.css rather than moving here)
+     - .site-section, .final-cta-section,
+       .final-cta-actions                          (style.css)
+     - .btn-clinic-primary, .btn-clinic-outline-light (style.css /
+       components.css sizing tweaks)
+     - Bootstrap grid/modal (bootstrap.min.css)
+
+   Load order in treatments.html <head>:
+     style.css → components.css → responsive.css → treatments.css
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Individual treatment page layout
+   --------------------------------------------------------- */
+
+.treatment-hero {
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-teal-light) 0%,
+      var(--color-white) 70%
+    );
+
+  padding-top: var(--space-xl);
+
+  padding-bottom: var(--space-lg);
+}
+
+
+.treatment-hero-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 72px;
+
+  height: 72px;
+
+  border-radius: var(--radius-lg);
+
+  background-color: var(--color-white);
+
+  color: var(--color-teal);
+
+  font-size: 2rem;
+
+  box-shadow: var(--shadow-card);
+
+  margin-bottom: var(--space-sm);
+}
+
+
+.treatment-breadcrumb {
+  font-size: 0.85rem;
+
+  color: var(--color-text-muted);
+
+  margin-bottom: var(--space-sm);
+}
+
+
+.treatment-breadcrumb a {
+  color: var(--color-text-muted);
+}
+
+
+.treatment-breadcrumb a:hover {
+  color: var(--color-teal);
+}
+
+
+.treatment-body {
+  max-width: 760px;
+}
+
+
+.treatment-cta-box {
+  background-color:
+    var(--color-section-bg);
+
+  border-radius: var(--radius-lg);
+
+  padding: var(--space-lg);
+
+  margin-top: var(--space-lg);
+}
+
+
+.treatment-cta-box h3 {
+  margin-bottom: 0.4rem;
+}
+
+
+.treatment-cta-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  margin-top: var(--space-sm);
+}
+
+
+.treatment-related {
+  margin-top: var(--space-xl);
+}
