@@ -6,29 +6,17 @@
    treatment-detail.html for a single procedure).
 
    Covers:
-     - .treatment-hero / .treatment-hero-icon   (intro banner —
-       used by treatments.html's own hero section)
-     - .treatment-breadcrumb                    (detail pages only)
-     - .treatment-body                          (detail pages only)
-     - .treatment-cta-box / .treatment-cta-actions (detail pages only)
-     - .treatment-related                       (detail pages only)
+     - .treatment-hero / .treatment-hero-icon
+     - .treatment-breadcrumb
+     - .treatment-body
+     - .treatment-cta-box / .treatment-cta-actions
+     - .treatment-related
+     - Treatment-page final CTA override
 
-   Dependencies still required from other stylesheets — do NOT
-   delete these from components.css / style.css, treatments.html
-   needs them too:
-     - .site-navbar / footer / mobile-action-bar   (components.css)
-     - .section-eyebrow, .hero-lead                (components.css)
-     - .service-grid, .service-card and friends    (components.css —
-       shared with the homepage's treatments PREVIEW grid, so it
-       stays in components.css rather than moving here)
-     - .site-section, .final-cta-section,
-       .final-cta-actions                          (style.css)
-     - .btn-clinic-primary, .btn-clinic-outline-light (style.css /
-       components.css sizing tweaks)
-     - Bootstrap grid/modal (bootstrap.min.css)
+   IMPORTANT:
+   All rules in this file are page-specific and should NOT
+   change the homepage's treatment preview section.
 
-   Load order in treatments.html <head>:
-     style.css → components.css → responsive.css → treatments.css
    ========================================================= */
 
 
@@ -75,6 +63,10 @@
 }
 
 
+/* ---------------------------------------------------------
+   Treatment detail breadcrumb
+   --------------------------------------------------------- */
+
 .treatment-breadcrumb {
   font-size: 0.85rem;
 
@@ -94,14 +86,21 @@
 }
 
 
+/* ---------------------------------------------------------
+   Treatment detail body
+   --------------------------------------------------------- */
+
 .treatment-body {
   max-width: 760px;
 }
 
 
+/* ---------------------------------------------------------
+   Treatment detail CTA box
+   --------------------------------------------------------- */
+
 .treatment-cta-box {
-  background-color:
-    var(--color-section-bg);
+  background-color: var(--color-section-bg);
 
   border-radius: var(--radius-lg);
 
@@ -127,6 +126,538 @@
 }
 
 
+/* ---------------------------------------------------------
+   Related treatments
+   --------------------------------------------------------- */
+
 .treatment-related {
   margin-top: var(--space-xl);
 }
+
+
+/* =========================================================
+   TREATMENTS PAGE
+   FINAL CTA SECTION
+   =========================================================
+
+   This CTA is used at the bottom of treatments.html.
+
+   Design goal:
+   - Same visual language as About page CTA
+   - Centered content
+   - Clean pill-shaped buttons
+   - Consistent Call / WhatsApp / Appointment buttons
+   - No impact on homepage CTA sections
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   CTA SECTION SPACING
+   --------------------------------------------------------- */
+
+.treatments-page .final-cta-section {
+  margin-top: var(--space-2xl);
+
+  margin-bottom: var(--space-lg);
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CTA CONTAINER
+   --------------------------------------------------------- */
+
+.treatments-page .final-cta-section .container {
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CTA HEADING
+   --------------------------------------------------------- */
+
+.treatments-page .final-cta-section h2 {
+  margin: 0 auto 0.6rem;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CTA DESCRIPTION
+   --------------------------------------------------------- */
+
+.treatments-page .final-cta-section p {
+  max-width: 480px;
+
+  margin: 0 auto 1.5rem;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CTA BUTTON ROW
+   --------------------------------------------------------- */
+
+.treatments-page .final-cta-section .final-cta-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   APPOINTMENT BUTTON
+   =========================================================
+
+   Keep the primary appointment button visually consistent
+   with the Call and WhatsApp buttons.
+   ========================================================= */
+
+.treatments-page .final-cta-section .btn-clinic-primary {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  min-height: 48px;
+
+  padding: 0.7rem 1.75rem;
+
+  border-radius: 999px;
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   CALL + WHATSAPP BUTTONS
+   =========================================================
+
+   Redesigned to match the About page CTA.
+
+   The same .btn-clinic-outline-light class is used by
+   both Call and WhatsApp buttons.
+   ========================================================= */
+
+.treatments-page .final-cta-section .btn-clinic-outline-light {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  min-height: 48px;
+
+  padding: 0.7rem 1.75rem;
+
+  border: 2px solid var(--color-teal);
+
+  border-radius: 999px;
+
+  background-color: transparent;
+
+  color: var(--color-deep-blue);
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Call / WhatsApp icons
+   --------------------------------------------------------- */
+
+.treatments-page .final-cta-section .btn-clinic-outline-light i {
+  font-size: 1rem;
+
+  transition: transform 0.25s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Call / WhatsApp hover
+   --------------------------------------------------------- */
+
+.treatments-page .final-cta-section .btn-clinic-outline-light:hover {
+  background-color: var(--color-teal);
+
+  color: var(--color-white);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(14, 159, 154, 0.25);
+}
+
+
+.treatments-page .final-cta-section .btn-clinic-outline-light:hover i {
+  transform: scale(1.1);
+}
+
+
+/* ---------------------------------------------------------
+   Appointment button hover
+   --------------------------------------------------------- */
+
+.treatments-page .final-cta-section .btn-clinic-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(14, 159, 154, 0.25);
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE
+   HERO SPACING
+   =========================================================
+
+   Reduce the excessive whitespace between the hero
+   description and the treatment cards.
+   ========================================================= */
+
+.treatments-page .treatment-hero {
+  padding-bottom: 1.5rem;
+}
+
+
+.treatments-page .treatment-hero .hero-lead {
+  margin-bottom: 0;
+}
+
+
+/*
+   The treatment cards section follows the hero.
+   Reduce its top spacing as well.
+*/
+
+.treatments-page main > .site-section {
+  padding-top: 1.5rem;
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE
+   MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     MOBILE HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-top: 1.5rem;
+
+    padding-bottom: 0.75rem;
+  }
+
+
+  .treatments-page .treatment-hero .section-eyebrow {
+    margin-bottom: 0.5rem;
+  }
+
+
+  .treatments-page .treatment-hero h1 {
+    margin-bottom: 0.75rem;
+
+    line-height: 1.25;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+
+    line-height: 1.55;
+  }
+
+
+  /* -------------------------------------------------------
+     Treatment cards spacing
+     ------------------------------------------------------- */
+
+  .treatments-page main > .site-section {
+    padding-top: 0.75rem !important;
+
+    padding-bottom: 1rem !important;
+  }
+
+
+  /* =======================================================
+     MOBILE - SHOW ALL TREATMENTS
+     =======================================================
+
+     The homepage may still hide cards after the sixth card.
+
+     The treatments page explicitly overrides that behavior
+     and displays every treatment.
+     ======================================================= */
+
+  .treatments-page .service-grid .service-card:nth-child(n + 7) {
+    display: flex;
+  }
+
+
+  .treatments-page #treatments-full-grid .service-card {
+    display: flex;
+  }
+
+
+  /* =======================================================
+     MOBILE - CTA SECTION
+     ======================================================= */
+
+  .treatments-page .final-cta-section {
+    margin-top: 1.5rem;
+
+    margin-bottom: 1rem;
+
+    padding-top: 2rem;
+
+    padding-bottom: 2rem;
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section .container {
+    padding-left: 1rem;
+
+    padding-right: 1rem;
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section h2 {
+    width: 100%;
+
+    max-width: 360px;
+
+    margin: 0 auto 0.6rem;
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section p {
+    width: 100%;
+
+    max-width: 340px;
+
+    margin: 0 auto 1.25rem;
+
+    line-height: 1.6;
+
+    text-align: center;
+  }
+
+
+  /* -------------------------------------------------------
+     Mobile CTA buttons
+     ------------------------------------------------------- */
+
+  .treatments-page .final-cta-section .final-cta-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 0.7rem;
+
+    margin: 0 auto;
+  }
+
+
+  .treatments-page .final-cta-section .final-cta-actions .btn {
+    width: 100%;
+
+    max-width: 320px;
+
+    min-width: 0;
+
+    min-height: 48px;
+
+    margin: 0;
+
+    padding: 0.7rem 1rem;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  .treatments-page .final-cta-section .final-cta-actions .btn i {
+    flex: 0 0 auto;
+  }
+
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE
+   TABLET
+   576px - 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+
+  /* =======================================================
+     TABLET HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-bottom: 1.25rem;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  .treatments-page main > .site-section {
+    padding-top: 1.25rem;
+  }
+
+
+  /* =======================================================
+     TABLET CTA
+     ======================================================= */
+
+  .treatments-page .final-cta-section {
+    margin-top: var(--space-2xl);
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section .final-cta-actions {
+    max-width: 760px;
+  }
+
+
+  .treatments-page .final-cta-section .final-cta-actions .btn {
+    min-width: 180px;
+  }
+
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE
+   DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+
+  /* =======================================================
+     DESKTOP HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-bottom: 1.5rem;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  .treatments-page main > .site-section {
+    padding-top: 1.5rem;
+  }
+
+
+  /* =======================================================
+     DESKTOP CTA
+     ======================================================= */
+
+  .treatments-page .final-cta-section {
+    margin-top: var(--space-2xl);
+
+    margin-bottom: var(--space-lg);
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section .final-cta-actions {
+    max-width: 850px;
+  }
+
+
+  .treatments-page .final-cta-section .final-cta-actions .btn {
+    min-width: 200px;
+  }
+
+}
+
+/* =========================================================
+   TREATMENTS PAGE — FINAL CTA TOP SPACING
+   =========================================================
+   Remove the excessive space above:
+   "Not Sure Which Treatment You Need?"
+
+   This override affects ONLY treatments.html.
+   ========================================================= */
+
+.treatments-page .final-cta-section {
+  margin-top: 0;
+}
+
