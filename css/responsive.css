@@ -1,3 +1,4 @@
+
 /* =========================================================
    RESPONSIVE.CSS
    =========================================================
@@ -2195,10 +2196,6 @@
 
 /* =========================================================
    TREATMENTS PAGE - HERO SPACING
-   =========================================================
-
-   Desktop + tablet:
-   Reduce bottom space after the hero description.
    ========================================================= */
 
 .treatments-page .treatment-hero {
@@ -2210,13 +2207,6 @@
   margin-bottom: 0;
 }
 
-
-/*
-   The treatment cards are inside the first .site-section
-   after .treatment-hero.
-
-   Reduce its top padding so the cards begin sooner.
-*/
 
 .treatments-page main > .site-section,
 .treatments-page > .site-section {
@@ -2364,9 +2354,6 @@
 
   /* =======================================================
      MOBILE TREATMENT GRID SPACING
-     =======================================================
-
-     Bring treatment cards closer to the hero.
      ======================================================= */
 
   .treatments-page > .site-section {
@@ -2378,19 +2365,6 @@
 
   /* =======================================================
      MOBILE - SHOW ALL TREATMENTS
-     =======================================================
-
-     The general mobile rule hides cards after #6:
-
-         .service-grid .service-card:nth-child(n + 7)
-
-     This page-specific rule overrides it.
-
-     Homepage:
-     -> still shows only 6 cards
-
-     Treatments page:
-     -> shows ALL cards
      ======================================================= */
 
   .treatments-page .service-grid .service-card:nth-child(n + 7) {
@@ -2448,12 +2422,6 @@
     text-align: center;
   }
 
-
-  /*
-     Stack CTA buttons vertically on mobile.
-     This prevents Call and WhatsApp buttons from
-     becoming too narrow.
-  */
 
   .treatments-page .final-cta-actions {
     display: flex;
@@ -2593,6 +2561,575 @@
 
 
   .treatments-page .final-cta-actions .btn {
+    min-width: 200px;
+
+    min-height: 48px;
+  }
+
+}
+
+
+/* =========================================================
+   GALLERY PAGE ONLY
+   =========================================================
+
+   IMPORTANT:
+   These rules apply ONLY when gallery.html uses:
+
+       <main id="main-content" class="gallery-page">
+
+   Therefore these changes do NOT affect:
+   - Homepage
+   - About page
+   - Treatments page
+   - Contact page
+
+   Gallery page changes:
+   1. Reduce large empty space below the hero-lead
+   2. Bring gallery images closer to the hero
+   3. Reduce the space after the gallery note
+   4. Reduce unnecessary space before the CTA
+   5. Center the CTA content
+   6. Match Call / Book Appointment button styling
+   ========================================================= */
+
+
+/* =========================================================
+   GALLERY PAGE - GENERAL HERO SPACING
+   ========================================================= */
+
+.gallery-page .treatment-hero {
+  padding-bottom: 1.25rem;
+}
+
+
+.gallery-page .treatment-hero .hero-lead {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - GALLERY SECTION SPACING
+   =========================================================
+
+   The gallery images should start closer to the hero.
+   The note below the gallery should also not create a
+   large amount of unnecessary space before the CTA.
+   ========================================================= */
+
+.gallery-page > .site-section {
+  padding-top: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+
+.gallery-page .hours-note {
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - CTA
+   ========================================================= */
+
+.gallery-page .final-cta-section {
+  text-align: center;
+
+  margin-top: 1rem;
+
+  margin-bottom: var(--space-lg);
+}
+
+
+.gallery-page .final-cta-section .container,
+.gallery-page .final-cta-section .site-container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.gallery-page .final-cta-section h2 {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.gallery-page .final-cta-section p {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.gallery-page .final-cta-section .final-cta-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  max-width: 850px;
+
+  gap: 0.75rem;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - CTA BUTTONS
+   Match the redesigned About / Treatment CTA
+   ========================================================= */
+
+.gallery-page .final-cta-section .final-cta-actions .btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  min-width: 200px;
+
+  min-height: 48px;
+
+  margin: 0;
+
+  padding: 0.7rem 1.5rem;
+
+  white-space: nowrap;
+}
+
+
+.gallery-page .final-cta-section .final-cta-actions .btn i {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - CALL BUTTON
+   Redesigned to match About / Treatment CTA
+   ========================================================= */
+
+.gallery-page .final-cta-section .btn-clinic-outline-light {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  padding: 0.7rem 1.75rem;
+
+  border: 2px solid var(--color-teal);
+
+  border-radius: 999px;
+
+  background-color: transparent;
+
+  color: var(--color-deep-blue);
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.gallery-page .final-cta-section .btn-clinic-outline-light i {
+  font-size: 1rem;
+
+  transition: transform 0.25s ease;
+}
+
+
+.gallery-page .final-cta-section .btn-clinic-outline-light:hover {
+  background-color: var(--color-teal);
+
+  color: var(--color-white);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(14, 159, 154, 0.25);
+}
+
+
+.gallery-page .final-cta-section .btn-clinic-outline-light:hover i {
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   GALLERY PAGE - MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     MOBILE GALLERY HERO SPACING
+     =======================================================
+
+     Reduce the large empty space immediately below the
+     hero-lead.
+     ======================================================= */
+
+  .gallery-page .treatment-hero {
+    padding-top: 1.5rem;
+
+    padding-bottom: 0.35rem;
+  }
+
+
+  .gallery-page .treatment-hero .section-eyebrow {
+    margin-bottom: 0.5rem;
+  }
+
+
+  .gallery-page .treatment-hero h1 {
+    margin-bottom: 0.65rem;
+
+    line-height: 1.25;
+  }
+
+
+  .gallery-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+
+    line-height: 1.55;
+  }
+
+
+  /* =======================================================
+     MOBILE GALLERY GRID SECTION
+     =======================================================
+
+     Bring gallery images closer to the hero.
+     ======================================================= */
+
+  .gallery-page > .site-section {
+    padding-top: 0.35rem !important;
+
+    padding-bottom: 0.5rem !important;
+  }
+
+
+  /* =======================================================
+     MOBILE GALLERY NOTE
+     =======================================================
+
+     Reduce the small extra space after:
+     "More clinic photos will be added here over time."
+     ======================================================= */
+
+  .gallery-page .hours-note {
+    margin-top: 0.75rem !important;
+
+    margin-bottom: 0.25rem !important;
+
+    line-height: 1.4;
+  }
+
+
+  /* =======================================================
+     MOBILE GALLERY CTA
+     ======================================================= */
+
+  .gallery-page .final-cta-section {
+    padding-top: 1.5rem;
+
+    padding-bottom: 1.75rem;
+
+    margin-top: 0;
+
+    margin-bottom: 0;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section .container,
+  .gallery-page .final-cta-section .site-container {
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+  .gallery-page .final-cta-section h2 {
+    width: 100%;
+
+    max-width: 360px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 0.75rem;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section p {
+    width: 100%;
+
+    max-width: 340px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 1.25rem;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     MOBILE CTA BUTTON GROUP
+     ======================================================= */
+
+  .gallery-page .final-cta-section .final-cta-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    gap: 0.7rem;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* =======================================================
+     MOBILE CTA BUTTONS
+     ======================================================= */
+
+  .gallery-page .final-cta-section .final-cta-actions .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 320px;
+
+    min-width: 0;
+
+    min-height: 48px;
+
+    margin: 0;
+
+    padding: 0.7rem 1rem;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions .btn i {
+    flex: 0 0 auto;
+
+    line-height: 1;
+  }
+
+
+  .gallery-page .final-cta-section .btn-clinic-outline-light {
+    padding: 0.7rem 1rem;
+  }
+
+}
+
+
+/* =========================================================
+   GALLERY PAGE - TABLET
+   576px - 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+
+  /* =======================================================
+     TABLET GALLERY HERO SPACING
+     ======================================================= */
+
+  .gallery-page .treatment-hero {
+    padding-bottom: 1rem;
+  }
+
+
+  .gallery-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  /* =======================================================
+     TABLET GALLERY SECTION SPACING
+     ======================================================= */
+
+  .gallery-page > .site-section {
+    padding-top: 1rem;
+
+    padding-bottom: 0.75rem;
+  }
+
+
+  .gallery-page .hours-note {
+    margin-top: 1rem !important;
+
+    margin-bottom: 0.5rem !important;
+  }
+
+
+  /* =======================================================
+     TABLET GALLERY CTA
+     ======================================================= */
+
+  .gallery-page .final-cta-section {
+    padding-top: 1.75rem;
+
+    padding-bottom: 2rem;
+
+    margin-top: 0;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions {
+    max-width: 700px;
+
+    justify-content: center;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions .btn {
+    min-width: 180px;
+
+    min-height: 48px;
+  }
+
+}
+
+
+/* =========================================================
+   GALLERY PAGE - DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+
+  /* =======================================================
+     DESKTOP GALLERY HERO SPACING
+     ======================================================= */
+
+  .gallery-page .treatment-hero {
+    padding-bottom: 1rem;
+  }
+
+
+  .gallery-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  /* =======================================================
+     DESKTOP GALLERY SECTION SPACING
+     ======================================================= */
+
+  .gallery-page > .site-section {
+    padding-top: 1rem;
+
+    padding-bottom: 0.75rem;
+  }
+
+
+  .gallery-page .hours-note {
+    margin-top: 1rem !important;
+
+    margin-bottom: 0.5rem !important;
+  }
+
+
+  /* =======================================================
+     DESKTOP GALLERY CTA
+     ======================================================= */
+
+  .gallery-page .final-cta-section {
+    padding-top: 1.75rem;
+
+    padding-bottom: 2rem;
+
+    margin-top: 0;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions {
+    max-width: 850px;
+
+    justify-content: center;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions .btn {
     min-width: 200px;
 
     min-height: 48px;
