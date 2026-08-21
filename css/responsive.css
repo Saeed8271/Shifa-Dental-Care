@@ -8,6 +8,7 @@
    Component visual design lives in:
    - components.css
    - reviews.css
+   - treatments.css
 
    This file controls:
    - Layout changes
@@ -454,7 +455,6 @@
 
   /* =======================================================
      MOBILE - ABOUT PAGE HERO
-     -------------------------------------------------------
      ======================================================= */
 
   .about-page-hero {
@@ -662,10 +662,7 @@
 
 
   /* -------------------------------------------------------
-     1. Book an Appointment
-     -------------------------------------------------------
-     Sits directly below the philosophy card slider, with
-     its own bottom margin before the doctor profile starts.
+     Book an Appointment
      ------------------------------------------------------- */
 
   .doctor-content .about-actions {
@@ -774,10 +771,7 @@
 
 
   /* -------------------------------------------------------
-     6. Full Profile — Experience, Specialization,
-        Additional Certifications, Awards & Recognition
-     -------------------------------------------------------
-     Shown in full on mobile (previously hidden).
+     Full Profile
      ------------------------------------------------------- */
 
   .doctor-content .doctor-placeholder-grid {
@@ -896,6 +890,10 @@
 
   /* =======================================================
      MOBILE - SHOW ONLY 6 TREATMENTS
+     -------------------------------------------------------
+     This applies to the HOMEPAGE preview only.
+
+     The treatment page overrides this rule below.
      ======================================================= */
 
   .service-grid .service-card:nth-child(n + 7) {
@@ -1940,7 +1938,6 @@
     border-radius: var(--radius-lg);
   }
 
-
 }
 
 
@@ -2001,7 +1998,6 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-
   *,
   *::before,
   *::after {
@@ -2021,12 +2017,6 @@
     overflow-x: auto;
   }
 
-
-  /*
-     About philosophy slider:
-     JavaScript controls the movement, so reduced-motion
-     users should not receive automatic movement.
-  */
 
   .about-philosophy-grid {
     scroll-behavior: auto !important;
@@ -2048,10 +2038,12 @@
   text-align: center;
 }
 
+
 .about-page-hero .container,
 .about-page-hero .site-container {
   text-align: center;
 }
+
 
 .about-page-hero .section-eyebrow,
 .about-page-hero h1,
@@ -2075,8 +2067,8 @@
 /* =========================================================
    DESKTOP + TABLET
    >= 576px
-   ---------------------------------------------------------
-   Reduce the empty space above "Our Approach".
+
+   Reduce empty space above "Our Approach".
    ========================================================= */
 
 @media (min-width: 576px) {
@@ -2098,8 +2090,6 @@
 
   /* =======================================================
      PHILOSOPHY SECTION SPACING
-     -------------------------------------------------------
-     Remove excessive space above "Our Approach".
      ======================================================= */
 
   .about-philosophy-grid {
@@ -2117,11 +2107,6 @@
   }
 
 
-  /*
-     The philosophy section itself should start closer
-     to the previous section.
-  */
-
   .about-philosophy-grid {
     padding-top: 0;
   }
@@ -2129,8 +2114,6 @@
 
   /* =======================================================
      PHILOSOPHY CARDS
-     -------------------------------------------------------
-     One card visible at a time on mobile.
      ======================================================= */
 
   .about-philosophy-card {
@@ -2179,9 +2162,440 @@
      PHILOSOPHY SECTION HEADING
      ======================================================= */
 
-  .about-philosophy-grid
-  + * {
+  .about-philosophy-grid + * {
     margin-top: 0;
+  }
+
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE ONLY
+   =========================================================
+
+   IMPORTANT:
+   These rules apply ONLY when treatments.html uses:
+
+       <main id="main-content" class="treatments-page">
+
+   Therefore these changes do NOT affect:
+   - Homepage
+   - About page
+   - Contact page
+   - Gallery page
+
+   Treatment page changes:
+   1. Reduce space below treatment hero
+   2. Reduce space before treatment cards
+   3. Show ALL treatment cards on mobile
+   4. Center the CTA
+   5. Fix Call / WhatsApp buttons
+   ========================================================= */
+
+
+/* =========================================================
+   TREATMENTS PAGE - HERO SPACING
+   =========================================================
+
+   Desktop + tablet:
+   Reduce bottom space after the hero description.
+   ========================================================= */
+
+.treatments-page .treatment-hero {
+  padding-bottom: 1.5rem;
+}
+
+
+.treatments-page .treatment-hero .hero-lead {
+  margin-bottom: 0;
+}
+
+
+/*
+   The treatment cards are inside the first .site-section
+   after .treatment-hero.
+
+   Reduce its top padding so the cards begin sooner.
+*/
+
+.treatments-page main > .site-section,
+.treatments-page > .site-section {
+  padding-top: 1.5rem;
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE - CTA
+   ========================================================= */
+
+.treatments-page .final-cta-section {
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-section .container,
+.treatments-page .final-cta-section .site-container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-section h2 {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-section p {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  max-width: 850px;
+
+  gap: 0.75rem;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-actions .btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  min-width: 200px;
+
+  min-height: 48px;
+
+  margin: 0;
+
+  white-space: nowrap;
+}
+
+
+.treatments-page .final-cta-actions .btn i {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE - MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     MOBILE HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-top: 1.5rem;
+
+    padding-bottom: 0.5rem;
+  }
+
+
+  .treatments-page .treatment-hero .section-eyebrow {
+    margin-bottom: 0.5rem;
+  }
+
+
+  .treatments-page .treatment-hero h1 {
+    margin-bottom: 0.65rem;
+
+    line-height: 1.25;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+
+    line-height: 1.55;
+  }
+
+
+  /* =======================================================
+     MOBILE TREATMENT GRID SPACING
+     =======================================================
+
+     Bring treatment cards closer to the hero.
+     ======================================================= */
+
+  .treatments-page > .site-section {
+    padding-top: 0.5rem !important;
+
+    padding-bottom: 1.25rem !important;
+  }
+
+
+  /* =======================================================
+     MOBILE - SHOW ALL TREATMENTS
+     =======================================================
+
+     The general mobile rule hides cards after #6:
+
+         .service-grid .service-card:nth-child(n + 7)
+
+     This page-specific rule overrides it.
+
+     Homepage:
+     -> still shows only 6 cards
+
+     Treatments page:
+     -> shows ALL cards
+     ======================================================= */
+
+  .treatments-page .service-grid .service-card:nth-child(n + 7) {
+    display: flex !important;
+  }
+
+
+  .treatments-page #treatments-full-grid .service-card {
+    display: flex;
+  }
+
+
+  /* =======================================================
+     MOBILE TREATMENT CTA
+     ======================================================= */
+
+  .treatments-page .final-cta-section {
+    padding-top: 2rem;
+
+    padding-bottom: 2rem;
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section .container,
+  .treatments-page .final-cta-section .site-container {
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+  .treatments-page .final-cta-section h2 {
+    max-width: 360px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 0.75rem;
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section p {
+    max-width: 340px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 1.25rem;
+
+    text-align: center;
+  }
+
+
+  /*
+     Stack CTA buttons vertically on mobile.
+     This prevents Call and WhatsApp buttons from
+     becoming too narrow.
+  */
+
+  .treatments-page .final-cta-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    gap: 0.7rem;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .treatments-page .final-cta-actions .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 320px;
+
+    min-width: 0;
+
+    min-height: 48px;
+
+    margin: 0;
+
+    padding: 0.7rem 1rem;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  .treatments-page .final-cta-actions .btn i {
+    flex: 0 0 auto;
+
+    line-height: 1;
+  }
+
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE - TABLET
+   576px - 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+
+  /* =======================================================
+     TABLET HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-bottom: 1.25rem;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  .treatments-page > .site-section {
+    padding-top: 1.25rem;
+  }
+
+
+  /* =======================================================
+     TABLET CTA
+     ======================================================= */
+
+  .treatments-page .final-cta-actions {
+    max-width: 700px;
+
+    justify-content: center;
+  }
+
+
+  .treatments-page .final-cta-actions .btn {
+    min-width: 180px;
+  }
+
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE - DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+
+  /* =======================================================
+     DESKTOP HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-bottom: 1.5rem;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  .treatments-page > .site-section {
+    padding-top: 1.5rem;
+  }
+
+
+  /* =======================================================
+     DESKTOP CTA
+     ======================================================= */
+
+  .treatments-page .final-cta-actions {
+    max-width: 850px;
+
+    justify-content: center;
+  }
+
+
+  .treatments-page .final-cta-actions .btn {
+    min-width: 200px;
+
+    min-height: 48px;
   }
 
 }
