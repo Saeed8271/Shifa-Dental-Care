@@ -1,0 +1,666 @@
+/* =========================================================
+   GALLERY.CSS
+   =========================================================
+
+   Purpose:
+   Styles specific to the Gallery page and gallery components.
+
+   Includes:
+   - Full gallery grid
+   - Gallery images
+   - Lightbox
+   - Homepage gallery preview slider
+   - Gallery page hero spacing
+   - Gallery page final CTA
+
+   IMPORTANT:
+   Gallery-page-specific styles use .gallery-page so they
+   do NOT affect the homepage gallery preview.
+
+   ========================================================= */
+
+
+.gallery-page-hero {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-lg);
+}   
+
+/* =========================================================
+   GALLERY GRID + LIGHTBOX
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Gallery Grid
+   --------------------------------------------------------- */
+
+.gallery-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 1rem;
+}
+
+
+/* ---------------------------------------------------------
+   Gallery Item
+   --------------------------------------------------------- */
+
+.gallery-item {
+  display: block;
+
+  width: 100%;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: var(--radius-md);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-soft);
+
+  cursor: pointer;
+
+  background: none;
+}
+
+
+/* ---------------------------------------------------------
+   Gallery Image
+   --------------------------------------------------------- */
+
+.gallery-item img {
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Gallery Hover Effect
+   --------------------------------------------------------- */
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   GALLERY LIGHTBOX
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Lightbox Modal
+   --------------------------------------------------------- */
+
+.gallery-lightbox .modal-content {
+  border: none;
+
+  background: transparent;
+
+  box-shadow: none;
+}
+
+
+/* ---------------------------------------------------------
+   Lightbox Image Container
+   --------------------------------------------------------- */
+
+.gallery-lightbox .modal-body {
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   Lightbox Image
+   --------------------------------------------------------- */
+
+.gallery-lightbox img {
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+}
+
+
+/* ---------------------------------------------------------
+   Lightbox Close Button
+   --------------------------------------------------------- */
+
+.gallery-lightbox-close {
+  position: absolute;
+
+  top: -2.5rem;
+
+  right: 0;
+
+  filter:
+    invert(1)
+    grayscale(100%)
+    brightness(200%);
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   GALLERY PAGE ONLY
+   =========================================================
+
+   These rules apply only to:
+
+       <main class="gallery-page">
+
+   They do NOT affect:
+   - Homepage gallery preview
+   - Treatments page
+   - About page
+   - Contact page
+
+   ========================================================= */
+
+
+/* =========================================================
+   GALLERY PAGE - HERO SPACING
+   =========================================================
+
+   Reduce the unnecessary space below the gallery hero
+   description and bring the gallery images closer to the
+   hero section.
+   ========================================================= */
+
+.gallery-page .treatment-hero {
+  padding-bottom: 1.5rem;
+}
+
+
+.gallery-page .treatment-hero .hero-lead {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - CTA
+   =========================================================
+
+   Clean, centered CTA layout matching the CTA treatment
+   used on the About and Treatments pages.
+   ========================================================= */
+
+.gallery-page .final-cta-section {
+  margin-top: var(--space-2xl);
+
+  margin-bottom: var(--space-lg);
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CTA Container
+   --------------------------------------------------------- */
+
+.gallery-page .final-cta-section .container,
+.gallery-page .final-cta-section .site-container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CTA Heading
+   --------------------------------------------------------- */
+
+.gallery-page .final-cta-section h2 {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: 0 auto 0.6rem;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CTA Description
+   --------------------------------------------------------- */
+
+.gallery-page .final-cta-section p {
+  width: 100%;
+
+  max-width: 480px;
+
+  margin: 0 auto 1.5rem;
+
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CTA Actions
+   --------------------------------------------------------- */
+
+.gallery-page .final-cta-section .final-cta-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   GALLERY CTA - CALL BUTTON
+   =========================================================
+
+   Redesigned to match the About page CTA button.
+   ========================================================= */
+
+.gallery-page .final-cta-section .btn-clinic-outline-light {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  padding: 0.7rem 1.75rem;
+
+  border: 2px solid var(--color-teal);
+
+  border-radius: 999px;
+
+  background-color: transparent;
+
+  color: var(--color-deep-blue);
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Call Button Icon
+   --------------------------------------------------------- */
+
+.gallery-page .final-cta-section .btn-clinic-outline-light i {
+  font-size: 1rem;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Call Button Hover
+   --------------------------------------------------------- */
+
+.gallery-page .final-cta-section .btn-clinic-outline-light:hover {
+  background-color: var(--color-teal);
+
+  color: var(--color-white);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(14, 159, 154, 0.25);
+}
+
+
+.gallery-page .final-cta-section .btn-clinic-outline-light:hover i {
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   GALLERY CTA - BOOK APPOINTMENT BUTTON
+   =========================================================
+
+   Keep the primary button visually consistent with the
+   existing clinic primary button while ensuring proper
+   sizing and alignment inside this CTA.
+   ========================================================= */
+
+.gallery-page .final-cta-section .btn-clinic-primary {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  padding: 0.7rem 1.75rem;
+
+  border-radius: 999px;
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Primary Button Hover
+   --------------------------------------------------------- */
+
+.gallery-page .final-cta-section .btn-clinic-primary:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE GALLERY — SWIPE IMAGE SLIDER
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     MOBILE GALLERY PREVIEW SLIDER
+     ======================================================= */
+
+  .gallery-preview-section .gallery-grid {
+    display: flex;
+
+    width: 100%;
+
+    gap: 0.75rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+
+    padding: 0;
+  }
+
+
+  .gallery-preview-section .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* -------------------------------------------------------
+     Individual Gallery Slide
+     ------------------------------------------------------- */
+
+  .gallery-preview-section .gallery-item {
+    flex: 0 0 100%;
+
+    width: 100%;
+
+    scroll-snap-align: center;
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-card);
+
+    overflow: hidden;
+  }
+
+
+  /* -------------------------------------------------------
+     Gallery Image
+     ------------------------------------------------------- */
+
+  .gallery-preview-section .gallery-item img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    transition:
+      transform 0.3s ease;
+  }
+
+
+  /* Disable desktop hover zoom on mobile */
+  .gallery-preview-section .gallery-item:hover img {
+    transform: none;
+  }
+
+
+  /* -------------------------------------------------------
+     Swipe Hint
+     ------------------------------------------------------- */
+
+  .gallery-swipe-hint {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    margin: 0.75rem 0 0;
+
+    color: var(--color-text-muted);
+
+    font-size: 0.78rem;
+
+    font-weight: 500;
+
+    line-height: 1.3;
+  }
+
+
+  .gallery-swipe-hint i {
+    color: var(--color-teal);
+
+    font-size: 0.85rem;
+  }
+
+
+  /* -------------------------------------------------------
+     View Full Gallery Button
+     ------------------------------------------------------- */
+
+  .gallery-preview-section .text-center {
+    margin-top: 1.25rem !important;
+  }
+
+
+  /* =======================================================
+     GALLERY PAGE - MOBILE HERO SPACING
+     =======================================================
+
+     Reduce the space between the hero description and the
+     gallery section on mobile.
+     ======================================================= */
+
+  .gallery-page .treatment-hero {
+    padding-top: 1.5rem;
+
+    padding-bottom: 0.5rem;
+  }
+
+
+  .gallery-page .treatment-hero .section-eyebrow {
+    margin-bottom: 0.5rem;
+  }
+
+
+  .gallery-page .treatment-hero h1 {
+    margin-bottom: 0.65rem;
+
+    line-height: 1.25;
+  }
+
+
+  .gallery-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+
+    line-height: 1.55;
+  }
+
+
+  /* =======================================================
+     GALLERY PAGE - MOBILE CTA
+     ======================================================= */
+
+  .gallery-page .final-cta-section {
+    padding-top: 2rem;
+
+    padding-bottom: 2rem;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section .container,
+  .gallery-page .final-cta-section .site-container {
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+  .gallery-page .final-cta-section h2 {
+    max-width: 360px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 0.75rem;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section p {
+    max-width: 340px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 1.25rem;
+
+    text-align: center;
+  }
+
+
+  /* -------------------------------------------------------
+     Stack CTA Buttons
+     ------------------------------------------------------- */
+
+  .gallery-page .final-cta-section .final-cta-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    gap: 0.7rem;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* -------------------------------------------------------
+     Mobile CTA Buttons
+     ------------------------------------------------------- */
+
+  .gallery-page .final-cta-section .final-cta-actions .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 320px;
+
+    min-width: 0;
+
+    min-height: 48px;
+
+    margin: 0;
+
+    padding: 0.7rem 1rem;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions .btn i {
+    flex: 0 0 auto;
+
+    line-height: 1;
+  }
+
+}

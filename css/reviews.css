@@ -1,0 +1,625 @@
+/* =========================================================
+   REVIEWS.CSS
+   ---------------------------------------------------------
+   Full Reviews page styling + homepage review page support.
+
+   IMPORTANT ARCHITECTURE
+   ----------------------
+   The homepage and full Reviews page use different
+   review layouts.
+
+   HOMEPAGE
+   --------
+   Homepage review slider is controlled by:
+   - components.css
+   - responsive.css
+   - reviews.js
+
+   This file intentionally does NOT override the homepage
+   review slider.
+
+   FULL REVIEWS PAGE
+   -----------------
+   The full Reviews page uses:
+   - Multiple horizontal rows
+   - Continuous CSS animation
+   - Alternating directions
+   - All reviews visible across the rows
+
+   reviews.js creates the rows.
+   reviews.css controls their appearance and animation.
+
+   Breakpoints:
+   - Mobile:  < 576px
+   - Tablet:  576px – 991px
+   - Desktop: >= 992px
+   ========================================================= */
+
+
+
+
+/* =========================================================
+   REVIEWS PAGE
+   ---------------------------------------------------------
+   General page-level styling.
+   ========================================================= */
+
+.reviews-page {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   REVIEWS PAGE HERO
+   ---------------------------------------------------------
+   Keep the hero compact so the review rows begin without
+   excessive empty space.
+   ========================================================= */
+
+.reviews-page-hero {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-lg);
+}
+
+
+
+.reviews-page .treatment-hero {
+  padding-bottom: 2.5rem;
+}
+
+.reviews-page .hero-lead {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   REVIEWS SECTION
+   ========================================================= */
+
+.reviews-page .reviews-section {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   REVIEWS PAGE CONTAINER
+   ---------------------------------------------------------
+   The rows themselves extend horizontally beyond the
+   viewport. The parent clips that overflow.
+   ========================================================= */
+
+.reviews-page #reviews-grid {
+  width: 100%;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   REVIEWS PAGE ROW CONTAINER
+   ========================================================= */
+
+.reviews-page .reviews-page-rows {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   INDIVIDUAL REVIEW ROW
+   ---------------------------------------------------------
+   Each row is a viewport.
+
+   The moving element inside it is:
+     .reviews-page-row-track
+   ========================================================= */
+
+.reviews-page .reviews-page-row {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   REVIEW ROW TRACK
+   ---------------------------------------------------------
+   The track contains:
+
+     original cards + duplicate cards
+
+   Example:
+
+     A B C D | A B C D
+
+   Moving the track by 50% creates a seamless loop.
+   ========================================================= */
+
+.reviews-page .reviews-page-row-track {
+  display: flex;
+  align-items: stretch;
+  gap: 1.5rem;
+
+  width: max-content;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   ROW ANIMATION — RIGHT TO LEFT
+   ---------------------------------------------------------
+   Applied to rows with:
+     .reviews-row-left
+   ========================================================= */
+
+.reviews-page .reviews-row-left .reviews-page-row-track {
+  animation:
+    reviewsRowLeft
+    28s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   ROW ANIMATION — LEFT TO RIGHT
+   ---------------------------------------------------------
+   Applied to rows with:
+     .reviews-row-right
+   ========================================================= */
+
+.reviews-page .reviews-row-right .reviews-page-row-track {
+  animation:
+    reviewsRowRight
+    28s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   RIGHT TO LEFT KEYFRAMES
+   ========================================================= */
+
+@keyframes reviewsRowLeft {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* =========================================================
+   LEFT TO RIGHT KEYFRAMES
+   ---------------------------------------------------------
+   Start from the duplicated half and move back toward
+   the original position.
+   ========================================================= */
+
+@keyframes reviewsRowRight {
+
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+
+}
+
+
+/* =========================================================
+   REVIEW CARD
+   ---------------------------------------------------------
+   Shared visual appearance for cards on the full Reviews
+   page.
+
+   The homepage card styling is intentionally not targeted
+   here.
+   ========================================================= */
+
+.reviews-page .review-card {
+  position: relative;
+
+  flex: 0 0 330px;
+  width: 330px;
+
+  min-height: 245px;
+
+  padding: 1.75rem;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(13, 148, 136, 0.12);
+
+  border-radius: 1.25rem;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06);
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   DECORATIVE QUOTE MARK
+   ========================================================= */
+
+.reviews-page .review-card::before {
+  content: "“";
+
+  position: absolute;
+
+  top: 0.45rem;
+  right: 1.25rem;
+
+  font-family: Georgia, serif;
+
+  font-size: 4.5rem;
+
+  line-height: 1;
+
+  opacity: 0.08;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   REVIEW CARD HOVER
+   ========================================================= */
+
+.reviews-page .review-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 16px 38px rgba(15, 23, 42, 0.10);
+
+  border-color:
+    rgba(13, 148, 136, 0.25);
+}
+
+
+/* =========================================================
+   STARS
+   ========================================================= */
+
+.reviews-page .review-card-stars {
+  display: flex;
+  align-items: center;
+
+  gap: 0.2rem;
+
+  margin-bottom: 1rem;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.08rem;
+
+  color: #f59e0b;
+}
+
+
+/* =========================================================
+   REVIEW TEXT
+   ========================================================= */
+
+.reviews-page .review-card-text {
+  margin: 0;
+
+  color:
+    var(--text-color, #334155);
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 0.95rem;
+
+  line-height: 1.75;
+
+  flex-grow: 1;
+}
+
+
+/* =========================================================
+   REVIEWER NAME
+   ========================================================= */
+
+.reviews-page .review-card-name {
+  margin: 1.35rem 0 0;
+
+  padding-top: 1rem;
+
+  border-top:
+    1px solid rgba(15, 23, 42, 0.08);
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  color:
+    var(--heading-color, #0f172a);
+}
+
+
+.reviews-page .review-card-name span {
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 0.78rem;
+
+  font-weight: 400;
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   TABLET
+   ---------------------------------------------------------
+   576px – 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+  /* -------------------------------------------------------
+     ROW GAP
+     ------------------------------------------------------- */
+
+  .reviews-page .reviews-page-rows {
+    gap: 1.25rem;
+  }
+
+
+  /* -------------------------------------------------------
+     CARD GAP
+     ------------------------------------------------------- */
+
+  .reviews-page .reviews-page-row-track {
+    gap: 1.25rem;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET CARD
+     ------------------------------------------------------- */
+
+  .reviews-page .review-card {
+    flex-basis: 300px;
+    width: 300px;
+
+    min-height: 235px;
+
+    padding: 1.5rem;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLET TEXT
+     ------------------------------------------------------- */
+
+  .reviews-page .review-card-text {
+    font-size: 0.9rem;
+  }
+
+
+  /* -------------------------------------------------------
+     SLIGHTLY FASTER TABLET ANIMATION
+     ------------------------------------------------------- */
+
+  .reviews-page .reviews-row-left .reviews-page-row-track,
+  .reviews-page .reviews-row-right .reviews-page-row-track {
+    animation-duration: 25s;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ---------------------------------------------------------
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     HERO SPACING
+     ======================================================= */
+
+  .reviews-page .treatment-hero {
+    padding-bottom: 1.75rem;
+  }
+
+
+  /* =======================================================
+     REVIEWS SECTION
+     ======================================================= */
+
+  .reviews-page .reviews-section {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+
+  /* =======================================================
+     REVIEWS VIEWPORT
+     ======================================================= */
+
+  .reviews-page #reviews-grid {
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+
+  /* =======================================================
+     ROWS
+     ======================================================= */
+
+  .reviews-page .reviews-page-rows {
+    gap: 1rem;
+  }
+
+
+  /* =======================================================
+     INDIVIDUAL ROW
+     ======================================================= */
+
+  .reviews-page .reviews-page-row {
+    width: 100%;
+    overflow: hidden;
+  }
+
+
+  /* =======================================================
+     MOBILE TRACK
+     ======================================================= */
+
+  .reviews-page .reviews-page-row-track {
+    gap: 0.9rem;
+  }
+
+
+  /* =======================================================
+     MOBILE CARD
+     -------------------------------------------------------
+     Keep the cards wide enough to feel substantial while
+     allowing the horizontal animation to remain visible.
+     ======================================================= */
+
+  .reviews-page .review-card {
+    flex: 0 0 290px;
+    width: 290px;
+
+    min-height: 250px;
+
+    padding: 1.5rem;
+
+    border-radius: 1.1rem;
+
+    box-shadow:
+      0 8px 25px rgba(15, 23, 42, 0.06);
+  }
+
+
+  /* =======================================================
+     DISABLE HOVER LIFT ON TOUCH DEVICES
+     ======================================================= */
+
+  .reviews-page .review-card:hover {
+    transform: none;
+
+    box-shadow:
+      0 8px 25px rgba(15, 23, 42, 0.06);
+  }
+
+
+  /* =======================================================
+     MOBILE STARS
+     ======================================================= */
+
+  .reviews-page .review-card-stars {
+    margin-bottom: 0.9rem;
+
+    font-size: 0.95rem;
+  }
+
+
+  /* =======================================================
+     MOBILE TEXT
+     ======================================================= */
+
+  .reviews-page .review-card-text {
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+  }
+
+
+  /* =======================================================
+     MOBILE REVIEWER
+     ======================================================= */
+
+  .reviews-page .review-card-name {
+    margin-top: 1.2rem;
+
+    padding-top: 0.9rem;
+
+    font-size: 0.85rem;
+  }
+
+
+  .reviews-page .review-card-name span {
+    font-size: 0.74rem;
+  }
+
+
+  /* =======================================================
+     MOBILE ANIMATION SPEED
+     ======================================================= */
+
+  .reviews-page .reviews-row-left .reviews-page-row-track,
+  .reviews-page .reviews-row-right .reviews-page-row-track {
+    animation-duration: 22s;
+  }
+
+}
+
+
+/* =========================================================
+   FINAL CTA — REVIEWS PAGE
+   ---------------------------------------------------------
+   Keep the CTA naturally connected to the review section.
+   ========================================================= */
+
+.reviews-page .final-cta-section {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ---------------------------------------------------------
+   Respect users who prefer reduced animation.
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reviews-page .reviews-page-row-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .reviews-page .review-card {
+    transition: none !important;
+  }
+
+}
+
+
+/* =========================================================
+   END OF REVIEWS.CSS
+   ========================================================= */

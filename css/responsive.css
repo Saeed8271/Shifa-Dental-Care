@@ -1,0 +1,3845 @@
+/* =========================================================
+   RESPONSIVE.CSS
+   =========================================================
+
+   Purpose:
+   Responsive behavior only.
+
+   Component visual design lives in:
+   - components.css
+   - reviews.css
+   - treatments.css
+
+   This file controls:
+   - Layout changes
+   - Responsive spacing
+   - Sizing
+   - Visibility
+   - Mobile / tablet / desktop behavior
+
+   Breakpoints:
+   - Mobile:  < 576px
+   - Tablet:  576px – 991px
+   - Desktop: >= 992px
+   - Large Desktop: >= 1200px
+
+   ========================================================= */
+
+
+/* =========================================================
+   MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     MOBILE ACTION BAR
+     ======================================================= */
+
+  .mobile-action-bar {
+    display: flex !important;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    z-index: 9999;
+  }
+
+
+  body {
+    padding-bottom: 64px;
+  }
+
+
+  /* =======================================================
+     MOBILE NAVBAR
+     ======================================================= */
+
+  .site-navbar .brand-logo-img {
+    height: 36px;
+    max-width: 90px;
+  }
+
+
+  .site-navbar .brand-text {
+    font-size: 0.92rem;
+  }
+
+
+  /* =======================================================
+     MOBILE HERO - EDGE TO EDGE
+     ======================================================= */
+
+  .hero-section {
+    width: 100vw;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding: 0;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    overflow: hidden;
+  }
+
+
+  .hero-section > .container,
+  .hero-section > .site-container {
+    width: 100vw;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  /* =======================================================
+     MOBILE HERO GRID
+     ======================================================= */
+
+  .hero-section .hero-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100vw;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    gap: 0;
+  }
+
+
+  /* =======================================================
+     MOBILE HERO VISUAL - IMAGE FIRST
+     ======================================================= */
+
+  .hero-section .hero-visual {
+    order: -1;
+
+    display: block;
+
+    width: 100vw;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    flex: 0 0 auto;
+  }
+
+
+  /* =======================================================
+     MOBILE HERO SLIDER
+     ======================================================= */
+
+  .hero-section .hero-slider {
+    display: block;
+
+    width: 100vw;
+    max-width: none;
+
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    aspect-ratio: 5 / 3;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    overflow: hidden;
+  }
+
+
+  .hero-section .hero-slide {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .hero-section .hero-slide picture {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .hero-section .hero-slide img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: cover;
+  }
+
+
+  .hero-section .hero-slider-dots {
+    bottom: 0.75rem;
+  }
+
+
+  /* =======================================================
+     MOBILE HERO CONTENT
+     ======================================================= */
+
+  .hero-section .hero-content {
+    order: 1;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    padding: 2rem 1.25rem 0.5rem;
+
+    text-align: center;
+  }
+
+
+  .hero-section .hero-brand-mark {
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 0.65rem;
+  }
+
+
+  .hero-section h1 {
+    width: 100%;
+    max-width: 600px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+
+    line-height: 1.1;
+
+    text-align: center;
+  }
+
+
+  .hero-section .hero-lead {
+    width: 100%;
+    max-width: 520px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 1rem;
+
+    line-height: 1.65;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     MOBILE HERO ACTIONS
+     ======================================================= */
+
+  .hero-section .hero-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 420px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    gap: 0.75rem;
+  }
+
+
+  .hero-section .hero-actions .btn {
+    width: 100%;
+    max-width: 340px;
+  }
+
+
+  /* =======================================================
+     MOBILE HERO TRUST ROW
+     ======================================================= */
+
+  .hero-section .hero-trust-row {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    width: 100%;
+    max-width: 500px;
+
+    margin: 1.25rem auto 0;
+
+    text-align: center;
+  }
+
+
+  .hero-section .hero-trust-item {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.45rem;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     MOBILE - ABOUT SHIFA DENTAL CARE
+     ======================================================= */
+
+  .about-section {
+    width: 100%;
+
+    margin-top: 0;
+
+    border-radius: 0;
+
+    border-left: 0;
+    border-right: 0;
+
+    box-shadow: none;
+  }
+
+
+  .about-section .about-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0;
+
+    text-align: center;
+  }
+
+
+  .about-section .about-image {
+    display: none;
+  }
+
+
+  .about-section .about-content {
+    width: 100%;
+    max-width: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 1.25rem;
+
+    text-align: center;
+  }
+
+
+  .about-section .section-eyebrow {
+    margin-bottom: 0.65rem;
+
+    font-size: 1rem;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.08em;
+
+    text-align: center;
+  }
+
+
+  .about-section .about-content h2 {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto 1rem;
+
+    font-size: clamp(1.55rem, 6vw, 2rem);
+
+    line-height: 1.25;
+
+    text-align: center;
+  }
+
+
+  .about-section .about-content p {
+    width: 100%;
+    max-width: 520px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 0.75rem;
+
+    font-size: 0.98rem;
+
+    line-height: 1.65;
+
+    text-align: center;
+  }
+
+
+  .about-section .about-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 340px;
+
+    margin: 1rem auto 0;
+
+    gap: 0.7rem;
+  }
+
+
+  .about-section .about-actions .btn {
+    width: 100%;
+    max-width: 340px;
+  }
+
+
+  .about-section.site-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+
+  /* =======================================================
+     MOBILE - ABOUT PAGE HERO
+     ======================================================= */
+
+  .about-page-hero {
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    text-align: center;
+  }
+
+
+  .about-page-hero .site-container {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+
+  .about-page-hero .section-eyebrow {
+    display: block;
+
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+
+  .about-page-hero h1 {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+
+  .about-page-hero .hero-lead {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     MOBILE - OUR PHILOSOPHY
+     ======================================================= */
+
+  .site-section.site-section--muted:has(.about-philosophy-grid) {
+    padding-top: 0.5rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+
+  .site-section.site-section--muted:has(.about-philosophy-grid)
+  .section-heading-block {
+    width: 100%;
+
+    margin-top: 0 !important;
+    margin-bottom: 1rem;
+
+    text-align: center;
+  }
+
+
+  .site-section.site-section--muted:has(.about-philosophy-grid)
+  .section-eyebrow {
+    display: block;
+
+    margin-top: 0 !important;
+    margin-bottom: 0.45rem;
+
+    text-align: center;
+  }
+
+
+  .site-section.site-section--muted:has(.about-philosophy-grid)
+  .section-heading-block h2 {
+    margin-top: 0;
+
+    margin-bottom: 0;
+
+    text-align: center;
+  }
+
+
+  /* -------------------------------------------------------
+     Philosophy slider viewport
+     ------------------------------------------------------- */
+
+  .about-philosophy-grid {
+    display: flex;
+
+    flex-wrap: nowrap;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    gap: 0;
+
+    overflow: hidden;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+  }
+
+
+  .about-philosophy-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* -------------------------------------------------------
+     Philosophy slider card
+     ------------------------------------------------------- */
+
+  .about-philosophy-card {
+    flex: 0 0 100%;
+
+    width: 100%;
+    min-width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 1.35rem 1.15rem;
+
+    margin: 0;
+
+    text-align: center;
+  }
+
+
+  .about-philosophy-card i {
+    margin-bottom: 0.55rem;
+
+    font-size: 1.7rem;
+  }
+
+
+  .about-philosophy-card h3 {
+    margin-bottom: 0.5rem;
+
+    font-size: 1.05rem;
+
+    line-height: 1.3;
+  }
+
+
+  .about-philosophy-card p {
+    margin: 0 auto;
+
+    max-width: 340px;
+
+    font-size: 0.9rem;
+
+    line-height: 1.55;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     MOBILE - DOCTOR SECTION
+     ======================================================= */
+
+  .doctor-section.site-section {
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .doctor-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+
+    gap: 0;
+
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+
+  .doctor-content {
+    display: contents;
+  }
+
+
+  /* -------------------------------------------------------
+     Book an Appointment
+     ------------------------------------------------------- */
+
+  .doctor-content .about-actions {
+    order: 1;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 0 0 2rem;
+
+    text-align: center;
+  }
+
+
+  .doctor-content .about-actions .btn {
+    width: auto;
+
+    max-width: 100%;
+  }
+
+
+  .doctor-content .section-eyebrow {
+    order: 2;
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 1rem;
+
+    text-align: center;
+  }
+
+
+  .doctor-image-wrap {
+    order: 3;
+
+    width: 100%;
+    max-width: 230px;
+
+    margin: 0 auto 1.25rem;
+
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+
+  .doctor-image-link {
+    display: block;
+
+    width: 100%;
+  }
+
+
+  .doctor-image-link img,
+  .doctor-image-placeholder {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+  }
+
+
+  .doctor-content h2 {
+    order: 4;
+
+    width: 100%;
+
+    margin: 0 0 0.9rem;
+
+    text-align: center;
+  }
+
+
+  .doctor-content .doctor-credentials-list {
+    order: 5;
+
+    width: 100%;
+    max-width: 340px;
+
+    margin: 0 auto 1rem;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  .doctor-content .doctor-credentials-list li {
+    justify-content: center;
+
+    text-align: center;
+  }
+
+
+  .doctor-content > p {
+    display: none;
+  }
+
+
+  /* -------------------------------------------------------
+     Full Profile
+     ------------------------------------------------------- */
+
+  .doctor-content .doctor-placeholder-grid {
+    order: 6;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    width: 100%;
+    max-width: 340px;
+
+    margin: 0 auto;
+
+    gap: 0.6rem;
+  }
+
+
+  .doctor-content .doctor-placeholder-item {
+    text-align: center;
+  }
+
+
+  .doctor-section .fade-up {
+    margin-top: 0;
+  }
+
+
+  /* =======================================================
+     MOBILE - TREATMENTS PREVIEW
+     3 CARDS PER ROW
+     ======================================================= */
+
+  .treatments-preview-section.site-section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+
+  .service-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 0.65rem;
+  }
+
+
+  .service-grid .service-card {
+    min-width: 0;
+
+    padding: 1rem 0.45rem;
+
+    border-radius: 0.9rem;
+
+    text-align: center;
+  }
+
+
+  .service-grid .service-card-icon {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 0.65rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .service-grid .service-card-icon img,
+  .service-grid .service-card-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+
+  .service-grid .service-card-title {
+    font-size: 0.82rem;
+
+    line-height: 1.25;
+
+    margin-bottom: 0.45rem;
+
+    word-break: break-word;
+  }
+
+
+  .service-grid .service-card-desc {
+    display: none;
+  }
+
+
+  .service-grid .service-card-more {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.2rem;
+
+    font-size: 0.68rem;
+
+    line-height: 1.2;
+
+    text-align: center;
+  }
+
+
+  .service-grid .service-card-more .bi {
+    font-size: 0.65rem;
+  }
+
+
+  /* =======================================================
+     MOBILE - SHOW ONLY 6 TREATMENTS
+     -------------------------------------------------------
+     This applies to the HOMEPAGE preview only.
+
+     The treatment page overrides this rule below.
+     ======================================================= */
+
+  .service-grid .service-card:nth-child(n + 7) {
+    display: none;
+  }
+
+
+  /* =======================================================
+     MOBILE - WHY CHOOSE SHIFA
+     2 CARDS PER ROW
+     ======================================================= */
+
+  .why-choose-section.site-section {
+    padding-top: 2rem;
+    padding-bottom: 0.75rem !important;
+  }
+
+
+  .why-choose-section .section-heading-block {
+    margin-bottom: 1.25rem;
+  }
+
+
+  .why-choose-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0.75rem;
+  }
+
+
+  .why-choose-card {
+    min-width: 0;
+
+    padding: 1rem 0.65rem;
+
+    text-align: center;
+
+    border-radius: 0.9rem;
+  }
+
+
+  .why-choose-icon {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 0.65rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .why-choose-icon i {
+    font-size: 1.15rem;
+  }
+
+
+  .why-choose-card h3 {
+    font-size: 0.82rem;
+
+    line-height: 1.25;
+
+    margin-bottom: 0;
+  }
+
+
+  .why-choose-card p {
+    display: none;
+  }
+
+
+  /* =======================================================
+     MOBILE - GALLERY
+     ======================================================= */
+
+  .gallery-preview-section.site-section {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* =======================================================
+     MOBILE - REVIEWS
+     ======================================================= */
+
+  .reviews-section.site-section {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  #reviews-grid {
+    margin-top: 1.5rem;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE - REVIEWS SLIDER
+     ---------------------------------------------------------
+     1 card per view (matches cardsPerView() in reviews.js).
+     ------------------------------------------------------- */
+
+  .reviews-slider-track {
+    gap: var(--space-sm);
+  }
+
+
+  .reviews-slider-slide {
+    flex-basis: 100%;
+  }
+
+
+  .reviews-slider-slide .review-card {
+    padding: var(--space-md);
+  }
+
+
+  .reviews-slider-dots {
+    margin-top: var(--space-md);
+  }
+
+
+  /* =======================================================
+     MOBILE - OTHER SINGLE-COLUMN GRIDS
+     ======================================================= */
+
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* =======================================================
+     MOBILE - FAQ TEASER
+     ======================================================= */
+
+  .faq-teaser-section.site-section {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+
+  .faq-teaser-box {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 1.75rem;
+  }
+
+
+  /* =======================================================
+     MOBILE - LOCATION PREVIEW
+     ======================================================= */
+
+  .location-preview-section.site-section {
+    padding-top: 1rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+
+  .location-preview-header {
+    width: 100%;
+
+    margin-bottom: 1.25rem;
+
+    text-align: center;
+  }
+
+
+  .location-preview-header h2 {
+    margin-bottom: 0;
+
+    font-size: clamp(1.5rem, 6vw, 2rem);
+
+    line-height: 1.25;
+
+    text-align: center;
+  }
+
+
+  .location-preview-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0;
+  }
+
+
+  .location-preview-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  .location-preview-item {
+    width: 100%;
+
+    margin-bottom: 1.15rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.4rem;
+
+    text-align: center;
+  }
+
+
+  .location-preview-icon {
+    width: 2rem;
+    height: 2rem;
+
+    flex: 0 0 2rem;
+
+    font-size: 1rem;
+
+    margin-bottom: 0.15rem;
+  }
+
+
+  .location-preview-item h3 {
+    margin-bottom: 0.3rem;
+
+    font-size: 0.95rem;
+
+    text-align: center;
+  }
+
+
+  .location-preview-item p {
+    width: 100%;
+    max-width: 430px;
+
+    margin: 0 auto;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    text-align: center;
+  }
+
+
+  .location-preview-hours {
+    margin-bottom: 1.25rem;
+  }
+
+
+  .location-preview-hours > div {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+
+  .hours-table {
+    width: 100%;
+
+    max-width: 360px;
+
+    margin: 0 auto;
+
+    font-size: 0.82rem;
+
+    text-align: center;
+  }
+
+
+  .hours-table td {
+    padding: 0.18rem 0;
+
+    vertical-align: top;
+  }
+
+
+  .hours-table td:first-child {
+    padding-right: 1rem;
+
+    text-align: right;
+  }
+
+
+  .hours-table td:last-child {
+    text-align: left;
+
+    white-space: nowrap;
+  }
+
+
+  .location-preview-map {
+    order: 2;
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0.5rem 0 0;
+  }
+
+
+  .location-preview-map iframe {
+    display: block;
+
+    width: 100%;
+
+    height: 260px;
+
+    min-height: 260px;
+
+    border-radius: var(--radius-lg);
+  }
+
+
+  .location-preview-actions {
+    order: 3;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: stretch;
+
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 0.6rem;
+
+    margin-top: 0;
+  }
+
+
+  .location-preview-actions .btn {
+    flex: 1 1 0;
+
+    width: 100%;
+
+    min-width: 0;
+
+    padding-left: 0.65rem;
+
+    padding-right: 0.65rem;
+
+    font-size: 0.85rem;
+
+    white-space: nowrap;
+  }
+
+
+  /* =======================================================
+     MOBILE - CONTACT PAGE
+     -------------------------------------------------------
+     Same doubled-padding issue as the tablet/desktop fix in
+     contact.css, just re-tightened for the smaller mobile
+     gap. Scoped under ".contact-page" only — does not touch
+     ".site-section" or ".treatment-hero" used on other pages.
+     ======================================================= */
+
+  .contact-page .treatment-hero {
+    padding-bottom: 1.75rem;
+  }
+
+
+  .contact-page .site-section + .site-section {
+    padding-top: 1rem !important;
+  }
+
+
+  /* =======================================================
+     MOBILE - FOOTER
+     ======================================================= */
+
+  .site-footer {
+    width: 100%;
+
+    text-align: center;
+  }
+
+
+  .site-footer .container.site-container {
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+  .site-footer .footer-main {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.7rem;
+
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+
+
+  .site-footer .footer-column--brand {
+    width: 100%;
+
+    margin: 0;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-brand-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.55rem;
+
+    width: auto;
+
+    margin: 0;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-logo {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+  }
+
+
+  .site-footer .footer-logo-img {
+    width: 34px;
+    height: 34px;
+
+    object-fit: contain;
+
+    display: block;
+
+    border-radius: 8px;
+  }
+
+
+  .site-footer .footer-brand {
+    display: inline-block;
+
+    margin: 0;
+
+    font-size: 1.15rem;
+
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-mobile-hide {
+    display: none !important;
+  }
+
+
+  .site-footer .footer-tagline {
+    display: none !important;
+  }
+
+
+  .site-footer .footer-description {
+    display: none !important;
+  }
+
+
+  .site-footer .footer-address-block {
+    display: none !important;
+  }
+
+
+  .site-footer .footer-column--links {
+    width: 100%;
+
+    margin: 0;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-column--links .footer-heading {
+    margin: 0 0 0.3rem;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-links {
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.25rem 0.9rem;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+  }
+
+
+  .site-footer .footer-links li {
+    margin: 0;
+
+    padding: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.3;
+  }
+
+
+  .site-footer .footer-links a {
+    display: inline-block;
+
+    white-space: nowrap;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-column--contact {
+    width: 100%;
+
+    margin: 0;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-column--contact .footer-heading {
+    margin: 0 0 0.3rem;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-contact-list {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0.25rem;
+
+    margin: 0;
+
+    padding: 0;
+  }
+
+
+  .site-footer .footer-contact-list li {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.45rem;
+
+    width: 100%;
+
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.3;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-contact-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 1.15rem;
+
+    width: 1.15rem;
+
+    font-size: 0.9rem;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-contact-list a {
+    display: inline-block;
+
+    font-size: 0.9rem;
+
+    text-align: center;
+
+    word-break: break-word;
+  }
+
+
+  .site-footer .footer-view-google {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    margin-top: 0.25rem;
+
+    font-size: 0.9rem;
+
+    line-height: 1.3;
+
+    text-align: center;
+
+    text-decoration: none;
+  }
+
+
+  .site-footer .footer-view-google i {
+    font-size: 0.9rem;
+  }
+
+
+  .site-footer .footer-heading--social {
+    margin-top: 0.45rem;
+
+    margin-bottom: 0.3rem;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-social {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.45rem;
+
+    margin: 0;
+  }
+
+
+  .site-footer .footer-social-link {
+    width: 34px;
+    height: 34px;
+
+    font-size: 0.95rem;
+  }
+
+
+  .site-footer .footer-bottom {
+    width: 100%;
+  }
+
+
+  .site-footer .footer-bottom-inner {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.1rem;
+
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+
+    text-align: center;
+  }
+
+
+  .site-footer .footer-bottom p {
+    margin: 0;
+
+    font-size: 0.8rem;
+
+    line-height: 1.3;
+
+    text-align: center;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   576px - 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+
+  /* =======================================================
+     TABLET HERO
+     ======================================================= */
+
+  .hero-section {
+    width: calc(100% - 3rem);
+
+    max-width: none;
+  }
+
+
+  .hero-section .hero-grid {
+    display: flex;
+
+    flex-direction: column;
+  }
+
+
+  .hero-section .hero-visual {
+    order: -1;
+
+    width: 100%;
+    max-width: 620px;
+
+    margin: 0 auto var(--space-lg);
+  }
+
+
+  .hero-section .hero-slider {
+    width: 100%;
+    max-width: 620px;
+
+    aspect-ratio: 5 / 3;
+  }
+
+
+  .hero-section .hero-content {
+    width: 100%;
+    max-width: 700px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* =======================================================
+     TABLET GRIDS
+     ======================================================= */
+
+  .service-grid,
+  .gallery-grid,
+  .why-choose-grid,
+  .reviews-grid,
+  .about-philosophy-grid,
+  .contact-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+
+  /* =======================================================
+     TABLET - REVIEWS SLIDER
+     -------------------------------------------------------
+     2 cards per view (matches cardsPerView() in reviews.js).
+     ======================================================= */
+
+  .reviews-slider-track {
+    gap: var(--space-md);
+  }
+
+
+  .reviews-slider-slide {
+    flex-basis: calc((100% - var(--space-md)) / 2);
+  }
+
+
+  /* =======================================================
+     TABLET - LOCATION PREVIEW
+     ======================================================= */
+
+  .location-preview-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-xl);
+  }
+
+
+  .location-preview-header {
+    text-align: center;
+  }
+
+
+  .location-preview-content {
+    width: 100%;
+  }
+
+
+  .location-preview-map {
+    width: 100%;
+  }
+
+
+  .location-preview-map iframe {
+    width: 100%;
+
+    height: 320px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET AND UP
+   >= 768px
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+  .site-section {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+
+  /* =======================================================
+     DESKTOP MOBILE ACTION BAR
+     ======================================================= */
+
+  .mobile-action-bar {
+    display: none !important;
+  }
+
+
+  body {
+    padding-bottom: 0;
+  }
+
+
+  /* =======================================================
+     DESKTOP HERO
+     ======================================================= */
+
+  .hero-section {
+    /* The side-by-side desktop layout doesn't need as much
+       breathing room above it as the stacked mobile/tablet
+       version — the base --space-2xl padding was leaving a
+       noticeably large empty gap above the heading here. */
+    padding-top: var(--space-lg);
+  }
+
+
+  .hero-section .hero-grid {
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+  }
+
+
+  .hero-section .hero-content {
+    order: 0;
+
+    width: auto;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: left;
+  }
+
+
+  .hero-section .hero-visual {
+    order: 0;
+
+    width: auto;
+
+    max-width: 420px;
+
+    margin: 0;
+  }
+
+
+  .hero-section .hero-slider {
+    width: 100%;
+
+    max-width: 420px;
+
+    aspect-ratio: 1 / 1;
+  }
+
+
+  /* =======================================================
+     DESKTOP ABOUT / DOCTOR / OTHER LAYOUTS
+     ======================================================= */
+
+  .about-grid,
+  .doctor-grid,
+  .modern-care-grid,
+  .location-preview-grid {
+    flex-direction: row;
+  }
+
+
+  .location-preview-map {
+    order: 0;
+  }
+
+
+  .doctor-image-wrap {
+    margin: 0;
+  }
+
+
+  .doctor-content {
+    display: block;
+  }
+
+
+  /* =======================================================
+     DESKTOP SERVICE GRID
+     ======================================================= */
+
+  .service-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+
+  /* =======================================================
+     DESKTOP WHY CHOOSE
+     ======================================================= */
+
+  .why-choose-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+
+  /* =======================================================
+     DESKTOP THREE-COLUMN GRIDS
+     ======================================================= */
+
+  .reviews-grid,
+  .about-philosophy-grid,
+  .contact-info-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+
+  /* =======================================================
+     DESKTOP GALLERY
+     ======================================================= */
+
+  .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+
+  /* =======================================================
+     DESKTOP TREATMENTS PREVIEW SPACING
+     ======================================================= */
+
+  .treatments-preview-section.site-section {
+    padding-bottom: 2rem;
+  }
+
+
+  .treatments-preview-section .text-center.mt-4 {
+    margin-bottom: 0 !important;
+  }
+
+
+  /* =======================================================
+     DESKTOP FAQ TEASER
+     ======================================================= */
+
+  .faq-teaser-section.site-section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+
+  .faq-teaser-box {
+    flex-direction: row;
+
+    text-align: left;
+  }
+
+
+  /* =======================================================
+     DESKTOP - LOCATION PREVIEW
+     ======================================================= */
+
+  .location-preview-section.site-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .location-preview-header {
+    text-align: left;
+  }
+
+
+  .location-preview-grid {
+    align-items: stretch;
+  }
+
+
+  .location-preview-content {
+    justify-content: center;
+  }
+
+
+  .location-preview-map {
+    order: 0;
+
+    align-self: stretch;
+
+    display: flex;
+  }
+
+
+  .location-preview-map iframe {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 0;
+
+    border-radius: var(--radius-lg);
+  }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   >= 1200px
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  .hero-section .hero-grid {
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+}
+
+
+/* =========================================================
+   SECTION SPACING - TABLET & DESKTOP ONLY
+   GALLERY -> REVIEWS -> FAQ
+   ========================================================= */
+
+@media (min-width: 576px) {
+
+  .why-choose-section.site-section {
+    padding-bottom: 1rem !important;
+  }
+
+
+  .gallery-preview-section.site-section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+
+  .reviews-section.site-section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+
+  #reviews-grid {
+    margin-top: 1.75rem;
+  }
+
+
+  .faq-teaser-section.site-section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+
+
+  .reviews-marquee-track {
+    animation: none !important;
+
+    overflow-x: auto;
+  }
+
+
+  .about-philosophy-grid {
+    scroll-behavior: auto !important;
+  }
+
+}
+
+
+/* =========================================================
+   ABOUT PAGE - PHILOSOPHY SECTION
+   ========================================================= */
+
+
+/* =========================================================
+   ABOUT PAGE HERO
+   ========================================================= */
+
+.about-page-hero {
+  text-align: center;
+}
+
+
+.about-page-hero .container,
+.about-page-hero .site-container {
+  text-align: center;
+}
+
+
+.about-page-hero .section-eyebrow,
+.about-page-hero h1,
+.about-page-hero .hero-lead {
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   PHILOSOPHY - GENERAL
+   ========================================================= */
+
+.about-philosophy-grid {
+  width: 100%;
+}
+
+
+/* =========================================================
+   DESKTOP + TABLET
+   >= 576px
+
+   Reduce empty space above "Our Approach".
+   ========================================================= */
+
+@media (min-width: 576px) {
+
+  .about-philosophy-grid {
+    margin-top: 0;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     PHILOSOPHY SECTION SPACING
+     ======================================================= */
+
+  .about-philosophy-grid {
+    display: flex;
+
+    width: 100%;
+
+    margin-top: 0;
+
+    gap: 0;
+
+    overflow: hidden;
+
+    grid-template-columns: none;
+  }
+
+
+  .about-philosophy-grid {
+    padding-top: 0;
+  }
+
+
+  /* =======================================================
+     PHILOSOPHY CARDS
+     ======================================================= */
+
+  .about-philosophy-card {
+    flex: 0 0 100%;
+
+    width: 100%;
+
+    min-width: 100%;
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     PHILOSOPHY CARD CONTENT
+     ======================================================= */
+
+  .about-philosophy-card i {
+    display: block;
+
+    margin-bottom: 0.6rem;
+
+    text-align: center;
+  }
+
+
+  .about-philosophy-card h3 {
+    margin-bottom: 0.5rem;
+
+    text-align: center;
+  }
+
+
+  .about-philosophy-card p {
+    margin-bottom: 0;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     PHILOSOPHY SECTION HEADING
+     ======================================================= */
+
+  .about-philosophy-grid + * {
+    margin-top: 0;
+  }
+
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE ONLY
+   =========================================================
+
+   IMPORTANT:
+   These rules apply ONLY when treatments.html uses:
+
+       <main id="main-content" class="treatments-page">
+
+   Therefore these changes do NOT affect:
+   - Homepage
+   - About page
+   - Contact page
+   - Gallery page
+
+   Treatment page changes:
+   1. Reduce space below treatment hero
+   2. Reduce space before treatment cards
+   3. Show ALL treatment cards on mobile
+   4. Center the CTA
+   5. Fix Call / WhatsApp buttons
+   ========================================================= */
+
+
+/* =========================================================
+   TREATMENTS PAGE - HERO SPACING
+   ========================================================= */
+
+.treatments-page .treatment-hero {
+  padding-bottom: 1.5rem;
+}
+
+
+.treatments-page .treatment-hero .hero-lead {
+  margin-bottom: 0;
+}
+
+
+.treatments-page main > .site-section,
+.treatments-page > .site-section {
+  padding-top: 1.5rem;
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE - CTA
+   ========================================================= */
+
+.treatments-page .final-cta-section {
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-section .container,
+.treatments-page .final-cta-section .site-container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-section h2 {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-section p {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  max-width: 850px;
+
+  gap: 0.75rem;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.treatments-page .final-cta-actions .btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  min-width: 200px;
+
+  min-height: 48px;
+
+  margin: 0;
+
+  white-space: nowrap;
+}
+
+
+.treatments-page .final-cta-actions .btn i {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE - MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     MOBILE HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-top: 1.5rem;
+
+    padding-bottom: 0.5rem;
+  }
+
+
+  .treatments-page .treatment-hero .section-eyebrow {
+    margin-bottom: 0.5rem;
+  }
+
+
+  .treatments-page .treatment-hero h1 {
+    margin-bottom: 0.65rem;
+
+    line-height: 1.25;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+
+    line-height: 1.55;
+  }
+
+
+  /* =======================================================
+     MOBILE TREATMENT GRID SPACING
+     ======================================================= */
+
+  .treatments-page > .site-section {
+    padding-top: 0.5rem !important;
+
+    padding-bottom: 1.25rem !important;
+  }
+
+
+  /* =======================================================
+     MOBILE - SHOW ALL TREATMENTS
+     ======================================================= */
+
+  .treatments-page .service-grid .service-card:nth-child(n + 7) {
+    display: flex !important;
+  }
+
+
+  .treatments-page #treatments-full-grid .service-card {
+    display: flex;
+  }
+
+
+  /* =======================================================
+     MOBILE TREATMENT CTA
+     ======================================================= */
+
+  .treatments-page .final-cta-section {
+    padding-top: 2rem;
+
+    padding-bottom: 2rem;
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section .container,
+  .treatments-page .final-cta-section .site-container {
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+  .treatments-page .final-cta-section h2 {
+    max-width: 360px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 0.75rem;
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-section p {
+    max-width: 340px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 1.25rem;
+
+    text-align: center;
+  }
+
+
+  .treatments-page .final-cta-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    gap: 0.7rem;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .treatments-page .final-cta-actions .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 320px;
+
+    min-width: 0;
+
+    min-height: 48px;
+
+    margin: 0;
+
+    padding: 0.7rem 1rem;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  .treatments-page .final-cta-actions .btn i {
+    flex: 0 0 auto;
+
+    line-height: 1;
+  }
+
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE - TABLET
+   576px - 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+
+  /* =======================================================
+     TABLET HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-bottom: 1.25rem;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  .treatments-page > .site-section {
+    padding-top: 1.25rem;
+  }
+
+
+  /* =======================================================
+     TABLET CTA
+     ======================================================= */
+
+  .treatments-page .final-cta-actions {
+    max-width: 700px;
+
+    justify-content: center;
+  }
+
+
+  .treatments-page .final-cta-actions .btn {
+    min-width: 180px;
+  }
+
+}
+
+
+/* =========================================================
+   TREATMENTS PAGE - DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+
+  /* =======================================================
+     DESKTOP HERO SPACING
+     ======================================================= */
+
+  .treatments-page .treatment-hero {
+    padding-bottom: 1.5rem;
+  }
+
+
+  .treatments-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  .treatments-page > .site-section {
+    padding-top: 1.5rem;
+  }
+
+
+  /* =======================================================
+     DESKTOP CTA
+     ======================================================= */
+
+  .treatments-page .final-cta-actions {
+    max-width: 850px;
+
+    justify-content: center;
+  }
+
+
+  .treatments-page .final-cta-actions .btn {
+    min-width: 200px;
+
+    min-height: 48px;
+  }
+
+}
+
+
+/* =========================================================
+   GALLERY PAGE ONLY
+   =========================================================
+
+   IMPORTANT:
+   These rules apply ONLY when gallery.html uses:
+
+       <main id="main-content" class="gallery-page">
+
+   Therefore these changes do NOT affect:
+   - Homepage
+   - About page
+   - Treatments page
+   - Contact page
+
+   Gallery page changes:
+   1. Reduce large empty space below the hero-lead
+   2. Bring gallery images closer to the hero
+   3. Reduce the space after the gallery note
+   4. Reduce unnecessary space before the CTA
+   5. Center the CTA content
+   6. Match Call / Book Appointment button styling
+   ========================================================= */
+
+
+/* =========================================================
+   GALLERY PAGE - GENERAL HERO SPACING
+   ========================================================= */
+
+.gallery-page .treatment-hero {
+  padding-bottom: 1.25rem;
+}
+
+
+.gallery-page .treatment-hero .hero-lead {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - GALLERY SECTION SPACING
+   =========================================================
+
+   The gallery images should start closer to the hero.
+   The note below the gallery should also not create a
+   large amount of unnecessary space before the CTA.
+   ========================================================= */
+
+.gallery-page > .site-section {
+  padding-top: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+
+.gallery-page .hours-note {
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - CTA
+   ========================================================= */
+
+.gallery-page .final-cta-section {
+  text-align: center;
+
+  margin-top: 1rem;
+
+  margin-bottom: var(--space-lg);
+}
+
+
+.gallery-page .final-cta-section .container,
+.gallery-page .final-cta-section .site-container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.gallery-page .final-cta-section h2 {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.gallery-page .final-cta-section p {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.gallery-page .final-cta-section .final-cta-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  max-width: 850px;
+
+  gap: 0.75rem;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - CTA BUTTONS
+   Match the redesigned About / Treatment CTA
+   ========================================================= */
+
+.gallery-page .final-cta-section .final-cta-actions .btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  min-width: 200px;
+
+  min-height: 48px;
+
+  margin: 0;
+
+  padding: 0.7rem 1.5rem;
+
+  white-space: nowrap;
+}
+
+
+.gallery-page .final-cta-section .final-cta-actions .btn i {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   GALLERY PAGE - CALL BUTTON
+   Redesigned to match About / Treatment CTA
+   ========================================================= */
+
+.gallery-page .final-cta-section .btn-clinic-outline-light {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  padding: 0.7rem 1.75rem;
+
+  border: 2px solid var(--color-teal);
+
+  border-radius: 999px;
+
+  background-color: transparent;
+
+  color: var(--color-deep-blue);
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.gallery-page .final-cta-section .btn-clinic-outline-light i {
+  font-size: 1rem;
+
+  transition: transform 0.25s ease;
+}
+
+
+.gallery-page .final-cta-section .btn-clinic-outline-light:hover {
+  background-color: var(--color-teal);
+
+  color: var(--color-white);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(14, 159, 154, 0.25);
+}
+
+
+.gallery-page .final-cta-section .btn-clinic-outline-light:hover i {
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   GALLERY PAGE - MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     MOBILE GALLERY HERO SPACING
+     =======================================================
+
+     Reduce the large empty space immediately below the
+     hero-lead.
+     ======================================================= */
+
+  .gallery-page .treatment-hero {
+    padding-top: 1.5rem;
+
+    padding-bottom: 0.35rem;
+  }
+
+
+  .gallery-page .treatment-hero .section-eyebrow {
+    margin-bottom: 0.5rem;
+  }
+
+
+  .gallery-page .treatment-hero h1 {
+    margin-bottom: 0.65rem;
+
+    line-height: 1.25;
+  }
+
+
+  .gallery-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+
+    line-height: 1.55;
+  }
+
+
+  /* =======================================================
+     MOBILE GALLERY GRID SECTION
+     =======================================================
+
+     Bring gallery images closer to the hero.
+     ======================================================= */
+
+  .gallery-page > .site-section {
+    padding-top: 0.35rem !important;
+
+    padding-bottom: 0.5rem !important;
+  }
+
+
+  /* =======================================================
+     MOBILE GALLERY NOTE
+     =======================================================
+
+     Reduce the small extra space after:
+     "More clinic photos will be added here over time."
+     ======================================================= */
+
+  .gallery-page .hours-note {
+    margin-top: 0.75rem !important;
+
+    margin-bottom: 0.25rem !important;
+
+    line-height: 1.4;
+  }
+
+
+  /* =======================================================
+     MOBILE GALLERY CTA
+     ======================================================= */
+
+  .gallery-page .final-cta-section {
+    padding-top: 1.5rem;
+
+    padding-bottom: 1.75rem;
+
+    margin-top: 0;
+
+    margin-bottom: 0;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section .container,
+  .gallery-page .final-cta-section .site-container {
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+  .gallery-page .final-cta-section h2 {
+    width: 100%;
+
+    max-width: 360px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 0.75rem;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section p {
+    width: 100%;
+
+    max-width: 340px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 1.25rem;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     MOBILE CTA BUTTON GROUP
+     ======================================================= */
+
+  .gallery-page .final-cta-section .final-cta-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    gap: 0.7rem;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* =======================================================
+     MOBILE CTA BUTTONS
+     ======================================================= */
+
+  .gallery-page .final-cta-section .final-cta-actions .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 320px;
+
+    min-width: 0;
+
+    min-height: 48px;
+
+    margin: 0;
+
+    padding: 0.7rem 1rem;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions .btn i {
+    flex: 0 0 auto;
+
+    line-height: 1;
+  }
+
+
+  .gallery-page .final-cta-section .btn-clinic-outline-light {
+    padding: 0.7rem 1rem;
+  }
+
+}
+
+
+/* =========================================================
+   GALLERY PAGE - TABLET
+   576px - 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+
+  /* =======================================================
+     TABLET GALLERY HERO SPACING
+     ======================================================= */
+
+  .gallery-page .treatment-hero {
+    padding-bottom: 1rem;
+  }
+
+
+  .gallery-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  /* =======================================================
+     TABLET GALLERY SECTION SPACING
+     ======================================================= */
+
+  .gallery-page > .site-section {
+    padding-top: 1rem;
+
+    padding-bottom: 0.75rem;
+  }
+
+
+  .gallery-page .hours-note {
+    margin-top: 1rem !important;
+
+    margin-bottom: 0.5rem !important;
+  }
+
+
+  /* =======================================================
+     TABLET GALLERY CTA
+     ======================================================= */
+
+  .gallery-page .final-cta-section {
+    padding-top: 1.75rem;
+
+    padding-bottom: 2rem;
+
+    margin-top: 0;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions {
+    max-width: 700px;
+
+    justify-content: center;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions .btn {
+    min-width: 180px;
+
+    min-height: 48px;
+  }
+
+}
+
+
+/* =========================================================
+   GALLERY PAGE - DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+
+  /* =======================================================
+     DESKTOP GALLERY HERO SPACING
+     ======================================================= */
+
+  .gallery-page .treatment-hero {
+    padding-bottom: 1rem;
+  }
+
+
+  .gallery-page .treatment-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+
+  /* =======================================================
+     DESKTOP GALLERY SECTION SPACING
+     ======================================================= */
+
+  .gallery-page > .site-section {
+    padding-top: 1rem;
+
+    padding-bottom: 0.75rem;
+  }
+
+
+  .gallery-page .hours-note {
+    margin-top: 1rem !important;
+
+    margin-bottom: 0.5rem !important;
+  }
+
+
+  /* =======================================================
+     DESKTOP GALLERY CTA
+     ======================================================= */
+
+  .gallery-page .final-cta-section {
+    padding-top: 1.75rem;
+
+    padding-bottom: 2rem;
+
+    margin-top: 0;
+
+    text-align: center;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions {
+    max-width: 850px;
+
+    justify-content: center;
+  }
+
+
+  .gallery-page .final-cta-section .final-cta-actions .btn {
+    min-width: 200px;
+
+    min-height: 48px;
+  }
+
+}
+
+/* =========================================================
+   REVIEWS PAGE ONLY
+   =========================================================
+
+   These rules apply ONLY to:
+
+       <main class="reviews-page">
+
+   Therefore they do NOT affect:
+   - Homepage
+   - About page
+   - Treatments page
+   - Gallery page
+   - Contact page
+
+   Reviews CTA:
+   1. Center CTA content
+   2. Keep buttons aligned on desktop/tablet
+   3. Stack buttons neatly on mobile
+   4. Keep Call / WhatsApp buttons consistent
+   5. Maintain comfortable responsive spacing
+   ========================================================= */
+
+
+/* =========================================================
+   REVIEWS PAGE - FINAL CTA
+   ========================================================= */
+
+.reviews-page .final-cta-section {
+  text-align: center;
+
+  margin-top: 0;
+
+  margin-bottom: 0;
+}
+
+
+.reviews-page .final-cta-section .container,
+.reviews-page .final-cta-section .site-container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.reviews-page .final-cta-section h2 {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+.reviews-page .final-cta-section p {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   REVIEWS CTA - BUTTON GROUP
+   ========================================================= */
+
+.reviews-page .final-cta-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  max-width: 850px;
+
+  gap: 0.75rem;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   REVIEWS CTA - ALL BUTTONS
+   ========================================================= */
+
+.reviews-page .final-cta-actions .btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  min-width: 200px;
+
+  min-height: 48px;
+
+  margin: 0;
+
+  padding: 0.7rem 1.5rem;
+
+  white-space: nowrap;
+}
+
+
+.reviews-page .final-cta-actions .btn i {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   REVIEWS CTA - CALL / WHATSAPP OUTLINE BUTTON
+   ========================================================= */
+
+.reviews-page .final-cta-section .btn-clinic-outline-light {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  padding: 0.7rem 1.5rem;
+
+  border: 2px solid var(--color-teal);
+
+  border-radius: 999px;
+
+  background-color: transparent;
+
+  color: var(--color-deep-blue);
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.reviews-page .final-cta-section .btn-clinic-outline-light i {
+  font-size: 1rem;
+
+  transition: transform 0.25s ease;
+}
+
+
+.reviews-page .final-cta-section .btn-clinic-outline-light:hover {
+  background-color: var(--color-teal);
+
+  color: var(--color-white);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(14, 159, 154, 0.25);
+}
+
+
+.reviews-page .final-cta-section .btn-clinic-outline-light:hover i {
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   REVIEWS PAGE - MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .reviews-page .final-cta-section {
+    padding-top: 1.5rem;
+
+    padding-bottom: 1.75rem;
+
+    text-align: center;
+  }
+
+
+  .reviews-page .final-cta-section .container,
+  .reviews-page .final-cta-section .site-container {
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+  .reviews-page .final-cta-section h2 {
+    width: 100%;
+
+    max-width: 360px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 0.75rem;
+
+    text-align: center;
+  }
+
+
+  .reviews-page .final-cta-section p {
+    width: 100%;
+
+    max-width: 340px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 1.25rem;
+
+    text-align: center;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE BUTTON GROUP
+     ------------------------------------------------------- */
+
+  .reviews-page .final-cta-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    gap: 0.7rem;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE BUTTONS
+     ------------------------------------------------------- */
+
+  .reviews-page .final-cta-actions .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    max-width: 320px;
+
+    min-width: 0;
+
+    min-height: 48px;
+
+    margin: 0;
+
+    padding: 0.7rem 1rem;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  .reviews-page .final-cta-actions .btn i {
+    flex: 0 0 auto;
+
+    line-height: 1;
+  }
+
+
+  .reviews-page .final-cta-section .btn-clinic-outline-light {
+    padding: 0.7rem 1rem;
+  }
+
+}
+
+
+/* =========================================================
+   REVIEWS PAGE - TABLET
+   576px - 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+  .reviews-page .final-cta-section {
+    padding-top: 1.75rem;
+
+    padding-bottom: 2rem;
+
+    text-align: center;
+  }
+
+
+  .reviews-page .final-cta-actions {
+    max-width: 700px;
+
+    justify-content: center;
+  }
+
+
+  .reviews-page .final-cta-actions .btn {
+    min-width: 180px;
+
+    min-height: 48px;
+  }
+
+}
+
+
+/* =========================================================
+   REVIEWS PAGE - DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+  .reviews-page .final-cta-section {
+    padding-top: 1.75rem;
+
+    padding-bottom: 2rem;
+
+    text-align: center;
+  }
+
+
+  .reviews-page .final-cta-actions {
+    max-width: 850px;
+
+    justify-content: center;
+  }
+
+
+  .reviews-page .final-cta-actions .btn {
+    min-width: 200px;
+
+    min-height: 48px;
+  }
+
+}
+
+/* =========================================================
+   CONTACT PAGE - FINAL COMPACT SPACING
+   =========================================================
+   
+   Purpose:
+   Reduce unnecessary vertical whitespace on contact.html.
+
+   Affects ONLY:
+   - Contact page
+
+   Targets:
+   1. Space below Contact hero description
+   2. Space below Book Appointment button
+   3. Space below WhatsApp helper sentence
+   4. Space between Contact page sections
+
+   This block is intentionally placed at the END of
+   responsive.css so it overrides earlier rules.
+   ========================================================= */
+
+
+/* =========================================================
+   1. CONTACT HERO
+   ---------------------------------------------------------
+   Reduce space below:
+
+   "Reach Shifa Dental Care in Phulwari Sharif..."
+
+   The original contact.css sets:
+       padding-bottom: 2.5rem;
+   ========================================================= */
+
+.contact-page .treatment-hero {
+  padding-bottom: 1rem !important;
+}
+
+
+.contact-page .treatment-hero .hero-lead {
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   2. QUICK CONTACT SECTION
+   ---------------------------------------------------------
+   Reduce space below:
+
+   [Call] [WhatsApp] [Email]
+              ↓
+       Book Appointment
+              ↓
+          NEXT SECTION
+
+   The button itself does not have a large bottom margin.
+   The large gap comes mainly from the section padding.
+   ========================================================= */
+
+.contact-page main > .site-section:first-of-type {
+  padding-bottom: 1rem !important;
+}
+
+
+/* =========================================================
+   3. LOCATION SECTION
+   ---------------------------------------------------------
+   Reduce the space between:
+
+   Quick Contact
+        ↓
+   Visit Us / Address & Clinic Hours
+   ========================================================= */
+
+.contact-page main > .site-section + .site-section {
+  padding-top: 1rem !important;
+}
+
+
+/* =========================================================
+   4. APPOINTMENT FORM
+   ---------------------------------------------------------
+   Reduce space below:
+
+   "This will open WhatsApp with your details filled in,
+   ready to send to the clinic."
+   ========================================================= */
+
+.contact-page .appointment-form .text-center {
+  margin-bottom: 0 !important;
+}
+
+
+.contact-page .appointment-form .hours-note {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   5. APPOINTMENT SECTION BOTTOM
+   ---------------------------------------------------------
+   Reduce the large space between the WhatsApp helper
+   sentence and the FAQ section.
+   ========================================================= */
+
+.contact-page #book {
+  padding-bottom: 1rem !important;
+}
+
+
+/* =========================================================
+   6. FAQ SECTION
+   ---------------------------------------------------------
+   Prevent the FAQ section's top padding from adding another
+   large gap after the appointment form.
+   ========================================================= */
+
+.contact-page #faq {
+  padding-top: 1rem !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  /* -------------------------------------------------------
+     Hero → Quick Contact
+     ------------------------------------------------------- */
+
+  .contact-page .treatment-hero {
+    padding-bottom: 0.5rem !important;
+  }
+
+
+  /* -------------------------------------------------------
+     Quick Contact → Location
+     ------------------------------------------------------- */
+
+  .contact-page main > .site-section:first-of-type {
+    padding-bottom: 0.75rem !important;
+  }
+
+
+  .contact-page main > .site-section + .site-section {
+    padding-top: 0.75rem !important;
+  }
+
+
+  /* -------------------------------------------------------
+     WhatsApp helper sentence
+     ------------------------------------------------------- */
+
+  .contact-page .appointment-form .hours-note {
+    margin-top: 0.2rem !important;
+    margin-bottom: 0 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     Appointment → FAQ
+     ------------------------------------------------------- */
+
+  .contact-page #book {
+    padding-bottom: 0.75rem !important;
+  }
+
+
+  .contact-page #faq {
+    padding-top: 0.75rem !important;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   576px - 991px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+  .contact-page .treatment-hero {
+    padding-bottom: 0.75rem !important;
+  }
+
+
+  .contact-page main > .site-section:first-of-type {
+    padding-bottom: 1rem !important;
+  }
+
+
+  .contact-page main > .site-section + .site-section {
+    padding-top: 1rem !important;
+  }
+
+
+  .contact-page .appointment-form .hours-note {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0 !important;
+  }
+
+
+  .contact-page #book {
+    padding-bottom: 1rem !important;
+  }
+
+
+  .contact-page #faq {
+    padding-top: 1rem !important;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+  .contact-page .treatment-hero {
+    padding-bottom: 1rem !important;
+  }
+
+
+  .contact-page main > .site-section:first-of-type {
+    padding-bottom: 1rem !important;
+  }
+
+
+  .contact-page main > .site-section + .site-section {
+    padding-top: 1rem !important;
+  }
+
+
+  .contact-page .appointment-form .hours-note {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0 !important;
+  }
+
+
+  .contact-page #book {
+    padding-bottom: 1rem !important;
+  }
+
+
+  .contact-page #faq {
+    padding-top: 1rem !important;
+  }
+
+}

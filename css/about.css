@@ -1,0 +1,1490 @@
+/* =========================================================
+   ABOUT.CSS
+   Page-specific styles for about.html (Shifa Dental Care).
+
+   This file holds:
+     1. About Shifa Dental Care
+     2. About Page — Philosophy cards
+     3. Doctor section
+     4. Final CTA section
+
+   Load order:
+   style.css → components.css → responsive.css → about.css
+
+   about.css is loaded last so page-specific rules can
+   safely override shared styles.
+   ========================================================= */
+
+
+/* =========================================================
+   ABOUT PAGE HERO
+
+   Every other inner page (Treatments, Gallery, Reviews,
+   Contact) uses the shared `.treatment-hero` class, which
+   already has its own top padding built in. This page's hero
+   uses a unique `.about-page-hero` class that never had that
+   padding added — it was only relying on the (now fixed-
+   position) navbar's reserved space, so the heading sat right
+   at the edge of the navbar instead of clearing it. Matching
+   the same top padding used by `.treatment-hero` elsewhere.
+   ========================================================= */
+
+.about-page-hero {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-lg);
+}
+
+
+/* =========================================================
+   ABOUT SHIFA DENTAL CARE
+   ========================================================= */
+
+.about-section {
+  margin-top: 4px;
+
+  width: auto;
+
+  margin-inline: auto;
+
+  border: 1px solid rgba(18, 59, 114, 0.14);
+
+  border-radius: var(--radius-lg);
+
+  background: var(--color-white);
+
+  box-shadow:
+    0 8px 25px rgba(18, 59, 114, 0.10),
+    0 0 30px rgba(18, 59, 114, 0.05);
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   About Section — Compact Vertical Spacing
+   --------------------------------------------------------- */
+
+.about-section.site-section {
+  padding-top: 2rem;
+
+  padding-bottom: 2rem;
+}
+
+
+/* ---------------------------------------------------------
+   About Layout
+   --------------------------------------------------------- */
+
+.about-grid {
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(1.75rem, 3vw, 3rem);
+
+  min-height: 0;
+}
+
+
+/* =========================================================
+   ABOUT IMAGE SLIDER
+   ========================================================= */
+
+.about-image {
+  flex: 0 0 42%;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* ---------------------------------------------------------
+   Slider Container
+   --------------------------------------------------------- */
+
+.about-slider {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 420px;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-lg);
+
+  background-color: var(--color-teal-light);
+
+  box-shadow:
+    0 18px 40px rgba(18, 59, 114, 0.14),
+    0 6px 16px rgba(18, 59, 114, 0.08);
+
+  isolation: isolate;
+}
+
+
+.about-slide {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  z-index: 0;
+
+  transition:
+    opacity 0.7s ease,
+    visibility 0.7s ease;
+}
+
+
+.about-slide.active {
+  opacity: 1;
+
+  visibility: visible;
+
+  z-index: 1;
+}
+
+
+.about-slide img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border: 0;
+
+  border-radius: inherit;
+
+  transition: transform 1.2s ease;
+}
+
+
+.about-slide.active img {
+  transform: scale(1.015);
+}
+
+
+/* ---------------------------------------------------------
+   Slider Dots
+   --------------------------------------------------------- */
+
+.about-slider-dots {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 1.15rem;
+
+  transform: translateX(-50%);
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  padding: 0.45rem 0.7rem;
+
+  border-radius: 999px;
+
+  background: rgba(18, 59, 114, 0.30);
+
+  backdrop-filter: blur(6px);
+
+  -webkit-backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+.about-slider-dots button {
+  width: 8px;
+
+  height: 8px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.70);
+
+  cursor: pointer;
+
+  opacity: 0.9;
+
+  transition:
+    width 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+
+.about-slider-dots button:hover {
+  opacity: 1;
+
+  transform: scale(1.15);
+}
+
+
+.about-slider-dots button.active {
+  width: 22px;
+
+  border-radius: 999px;
+
+  background: var(--color-white);
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   ABOUT CONTENT
+   ========================================================= */
+
+.about-content {
+  flex: 1 1 58%;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.about-section .section-eyebrow {
+  font-size: 1.25rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+
+.about-content h2 {
+  max-width: 720px;
+
+  margin: 0 0 1rem;
+
+  font-size: clamp(
+    1.8rem,
+    2.5vw,
+    2.35rem
+  );
+
+  line-height: 1.2;
+}
+
+
+.about-content p {
+  max-width: 680px;
+
+  margin-bottom: 0.85rem;
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+
+.about-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 0.85rem;
+
+  margin-top: 0.75rem;
+}
+
+
+/* =========================================================
+   ABOUT PAGE — PHILOSOPHY
+   ========================================================= */
+
+.philosophy-slider {
+  width: 100%;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+
+.about-philosophy-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.25rem;
+
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+.about-philosophy-card {
+  background-color: var(--color-white);
+
+  border-radius: var(--radius-lg);
+
+  padding: 1.5rem;
+
+  box-shadow: var(--shadow-soft);
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+.about-philosophy-card i {
+  font-size: 1.6rem;
+
+  color: var(--color-teal);
+
+  margin-bottom: 0.5rem;
+
+  display: block;
+}
+
+
+/* =========================================================
+   DOCTOR SECTION — DR. SANIA SHAKEEL
+   ========================================================= */
+
+.doctor-section {
+  width: calc(100% - 200px);
+
+  max-width: 1580px;
+
+  margin: var(--space-lg) auto 0;
+
+  background-color: var(--color-section-bg);
+
+  border: 1px solid rgba(18, 59, 114, 0.14);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    0 8px 25px rgba(18, 59, 114, 0.10),
+    0 0 30px rgba(18, 59, 114, 0.05);
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Section — Desktop Spacing
+   --------------------------------------------------------- */
+
+.doctor-section.site-section {
+  width: auto;
+  margin-top: 4px;
+
+  padding-bottom: 2.5rem;
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Layout
+   --------------------------------------------------------- */
+
+.doctor-grid {
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Image Wrapper
+   --------------------------------------------------------- */
+
+.doctor-image-wrap {
+  flex: 0 0 38%;
+
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Image
+   --------------------------------------------------------- */
+
+.doctor-image-link {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  max-width: 360px;
+
+  aspect-ratio: 1 / 1;
+
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+
+  background-color: var(--color-white);
+
+  border: 2px solid rgba(14, 159, 154, 0.35);
+
+  box-shadow:
+    0 0 0 4px rgba(14, 159, 154, 0.06),
+    0 12px 30px rgba(18, 59, 114, 0.14),
+    0 0 28px rgba(14, 159, 154, 0.12);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  animation: doctorImageGlow 3.5s ease-in-out infinite;
+}
+
+
+.doctor-image-link img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.35s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Image Hover
+   --------------------------------------------------------- */
+
+.doctor-image-link:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--color-teal);
+
+  box-shadow:
+    0 0 0 5px rgba(14, 159, 154, 0.08),
+    0 18px 40px rgba(18, 59, 114, 0.18),
+    0 0 38px rgba(14, 159, 154, 0.22);
+
+  animation-play-state: paused;
+}
+
+
+.doctor-image-link:hover img {
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   DOCTOR IMAGE GLOW
+   ========================================================= */
+
+@keyframes doctorImageGlow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 4px rgba(14, 159, 154, 0.06),
+      0 12px 30px rgba(18, 59, 114, 0.14),
+      0 0 24px rgba(14, 159, 154, 0.10);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 5px rgba(14, 159, 154, 0.10),
+      0 15px 34px rgba(18, 59, 114, 0.16),
+      0 0 34px rgba(14, 159, 154, 0.20);
+  }
+
+}
+
+
+/* =========================================================
+   DOCTOR IMAGE OVERLAY
+   ========================================================= */
+
+.doctor-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 0.4rem;
+
+  text-align: center;
+
+  padding: 0 var(--space-sm);
+
+  background: rgba(18, 59, 114, 0.78);
+
+  color: var(--color-white);
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+
+.doctor-image-overlay i {
+  font-size: 1.6rem;
+}
+
+
+.doctor-image-link:hover .doctor-image-overlay,
+.doctor-image-link:focus-visible .doctor-image-overlay {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   DOCTOR CONTENT
+   ========================================================= */
+
+.doctor-content {
+  flex: 1 1 62%;
+
+  min-width: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Eyebrow
+   --------------------------------------------------------- */
+
+.doctor-content .section-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 0.5rem;
+
+  font-size: 1.25rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Heading
+   --------------------------------------------------------- */
+
+.doctor-content h2 {
+  margin: 0 0 0.9rem;
+
+  font-size: clamp(
+    1.8rem,
+    2.5vw,
+    2.35rem
+  );
+
+  line-height: 1.2;
+
+  color: var(--color-deep-blue);
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Credentials
+   --------------------------------------------------------- */
+
+.doctor-credentials-list {
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0 0 var(--space-sm);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.4rem;
+}
+
+
+.doctor-credentials-list li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  font-size: 0.92rem;
+
+  color: var(--color-text-muted);
+}
+
+
+.doctor-credentials-list i {
+  color: var(--color-teal);
+
+  flex-shrink: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Doctor Introduction
+   --------------------------------------------------------- */
+
+.doctor-content > p {
+  max-width: 680px;
+
+  margin-bottom: var(--space-md);
+
+  color: var(--color-text-muted);
+
+  font-size: 0.98rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FUTURE DOCTOR INFORMATION
+   ========================================================= */
+
+.doctor-placeholder-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 0.75rem;
+
+  margin-bottom: var(--space-md);
+}
+
+
+.doctor-placeholder-item {
+  background-color: var(--color-white);
+
+  border: 1px solid rgba(18, 59, 114, 0.08);
+
+  border-radius: var(--radius-md);
+
+  padding: 0.75rem 1rem;
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.doctor-placeholder-item:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(14, 159, 154, 0.25);
+
+  box-shadow: var(--shadow-card);
+}
+
+
+.doctor-placeholder-label {
+  display: block;
+
+  font-family: var(--font-heading);
+
+  font-size: 0.72rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+
+  text-transform: uppercase;
+
+  color: var(--color-text-muted);
+
+  margin-bottom: 0.2rem;
+}
+
+
+.doctor-placeholder-value {
+  display: block;
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  color: var(--color-deep-blue);
+}
+
+
+/* =========================================================
+   DOCTOR CTA
+   ========================================================= */
+
+.doctor-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.85rem;
+
+  margin-top: 0.25rem;
+}
+
+
+/* =========================================================
+   DOCTOR IMAGE PLACEHOLDER
+   ========================================================= */
+
+.doctor-image-placeholder {
+  width: 100%;
+
+  max-width: 360px;
+
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  text-align: center;
+
+  background-color: var(--color-teal-light);
+
+  border: 1px dashed rgba(18, 59, 114, 0.3);
+
+  border-radius: var(--radius-lg);
+
+  color: var(--color-deep-blue);
+}
+
+
+.doctor-image-placeholder i {
+  font-size: 3rem;
+
+  color: var(--color-teal);
+}
+
+
+.doctor-image-placeholder span {
+  font-family: var(--font-heading);
+
+  font-weight: 500;
+
+  font-size: 0.85rem;
+
+  color: var(--color-text-muted);
+
+  padding: 0 var(--space-sm);
+}
+
+
+/* =========================================================
+   TABLET
+   576px – 991.98px
+   ========================================================= */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+  /* -------------------------------------------------------
+     Doctor Section
+     ------------------------------------------------------- */
+
+  .doctor-section {
+    width: calc(100% - 80px);
+
+    margin-top: 1rem;
+  }
+
+
+  .doctor-section.site-section {
+    padding-top: 1.5rem;
+
+    padding-bottom: 1.5rem;
+  }
+
+
+  .doctor-grid {
+    gap: 2rem;
+  }
+
+
+  .doctor-image-wrap {
+    flex: 0 0 40%;
+  }
+
+
+  .doctor-image-link {
+    max-width: 300px;
+  }
+
+
+  /* -------------------------------------------------------
+     Philosophy remains a normal 2-column grid.
+     ------------------------------------------------------- */
+
+  .philosophy-slider {
+    width: 100%;
+
+    overflow: visible;
+  }
+
+
+  .about-philosophy-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 1.25rem;
+
+    width: 100%;
+
+    transform: none !important;
+
+    transition: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   < 576px
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+
+  /* =======================================================
+     PHILOSOPHY MOBILE SLIDER
+     ======================================================= */
+
+  .philosophy-slider {
+    display: block;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    position: relative;
+
+    box-sizing: border-box;
+  }
+
+
+  .about-philosophy-grid {
+    --philosophy-card-count: 3;
+
+    display: flex !important;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    gap: 0 !important;
+
+    width: calc(var(--philosophy-card-count) * 100%) !important;
+
+    max-width: none;
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    transform: translate3d(0, 0, 0);
+
+    transition: transform 0.6s ease;
+
+    will-change: transform;
+  }
+
+
+  .about-philosophy-grid .about-philosophy-card {
+    flex: 0 0 auto;
+
+    width: calc(100% / var(--philosophy-card-count));
+
+    min-width: 0;
+
+    max-width: none;
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 1.5rem;
+
+    border-radius: var(--radius-lg);
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     DOCTOR SECTION
+     ======================================================= */
+
+  .doctor-section {
+    width: 100%;
+
+    margin-top: 0;
+
+    margin-bottom: 0;
+
+    background-color: transparent;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    overflow: visible;
+  }
+
+
+  /* -------------------------------------------------------
+     Mobile Doctor Section Spacing
+     ------------------------------------------------------- */
+
+  .doctor-section.site-section {
+    padding-top: 1rem;
+
+    padding-bottom: 2rem;
+  }
+
+
+  /* -------------------------------------------------------
+     Doctor Mobile Layout
+     ------------------------------------------------------- */
+
+  .doctor-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0;
+
+    text-align: center;
+
+    margin: 0;
+
+    padding: 0;
+  }
+
+
+  /*
+   * `display: contents` allows the doctor elements to become
+   * direct flex items of .doctor-grid so their mobile order
+   * can be controlled individually.
+   */
+  .doctor-content {
+    display: contents;
+  }
+
+
+  /* =======================================================
+     1. MEET YOUR DENTIST
+     ======================================================= */
+
+  .doctor-content .section-eyebrow {
+    order: 1;
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 0.85rem;
+
+    padding: 0;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    letter-spacing: 0.07em;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     2. DOCTOR IMAGE
+     ======================================================= */
+
+  .doctor-image-wrap {
+    order: 2;
+
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0 0 1.15rem;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+  }
+
+
+  .doctor-image-link {
+    width: min(72vw, 260px);
+
+    max-width: 260px;
+
+    margin: 0;
+
+    border-radius: var(--radius-lg);
+  }
+
+
+  .doctor-image-placeholder {
+    width: min(72vw, 260px);
+
+    max-width: 260px;
+
+    margin: 0;
+  }
+
+
+  /* =======================================================
+     3. DOCTOR NAME
+     ======================================================= */
+
+  .doctor-content h2 {
+    order: 3;
+
+    width: 100%;
+
+    margin: 0 0 0.75rem;
+
+    padding: 0;
+
+    font-size: 1.65rem;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     4. TRUST CREDENTIALS
+     ======================================================= */
+
+  .doctor-content .doctor-credentials-list {
+    order: 4;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    margin: 0 0 1.1rem;
+
+    padding: 0;
+
+    align-items: center;
+
+    gap: 0.55rem;
+  }
+
+
+  .doctor-content .doctor-credentials-list li {
+    justify-content: center;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 0.82rem;
+
+    line-height: 1.45;
+
+    gap: 0.45rem;
+  }
+
+
+  .doctor-content .doctor-credentials-list i {
+    font-size: 0.9rem;
+  }
+
+
+  /* =======================================================
+     5. VIEW DOCTOR PROFILE
+     ======================================================= */
+
+  .doctor-content .doctor-actions {
+    order: 5;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.75rem;
+  }
+
+
+  .doctor-content .doctor-actions .btn {
+    margin: 0;
+
+    min-width: 190px;
+
+    justify-content: center;
+  }
+
+
+  /* =======================================================
+     HIDE INTRODUCTION ON MOBILE
+     ======================================================= */
+
+  .doctor-content > p {
+    display: none;
+  }
+
+
+  /* =======================================================
+     FULL DOCTOR INFORMATION
+     ======================================================= */
+
+  .doctor-content .doctor-placeholder-grid {
+    order: 6;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    margin: 1rem 0 0;
+
+    padding: 0;
+
+    gap: 0.6rem;
+  }
+
+
+  .doctor-content .doctor-placeholder-item {
+    text-align: center;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   >= 992px
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+  /* -------------------------------------------------------
+     Doctor Section
+     ------------------------------------------------------- */
+
+  .doctor-section {
+    width: calc(100% - 200px);
+
+    margin-top: var(--space-lg);
+  }
+
+
+  .doctor-section.site-section {
+    padding-top: 2.5rem;
+
+    padding-bottom: 2.5rem;
+  }
+
+
+  .doctor-grid {
+    flex-direction: row;
+  }
+
+
+  .doctor-content {
+    display: block;
+  }
+
+
+  .doctor-image-wrap {
+    margin: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     Philosophy remains a normal 3-column grid.
+     ------------------------------------------------------- */
+
+  .philosophy-slider {
+    width: 100%;
+
+    overflow: visible;
+  }
+
+
+  .about-philosophy-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 1.25rem;
+
+    width: 100%;
+
+    transform: none !important;
+
+    transition: none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .doctor-image-link,
+  .doctor-image-link img,
+  .doctor-placeholder-item,
+  .about-philosophy-grid {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+}
+
+
+/* =========================================================
+   FINAL CTA SECTION — ABOUT PAGE OVERRIDE
+   ========================================================= */
+
+.final-cta-section {
+  margin-top: var(--space-2xl);
+
+  margin-bottom: var(--space-lg);
+}
+
+
+.final-cta-section .container {
+  text-align: center;
+}
+
+
+.final-cta-section h2 {
+  margin: 0 auto 0.6rem;
+}
+
+
+.final-cta-section p {
+  max-width: 480px;
+
+  margin: 0 auto 1.5rem;
+}
+
+
+.final-cta-section .final-cta-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+
+/* =========================================================
+   CALL BUTTON — REDESIGNED
+   ========================================================= */
+
+.final-cta-section .btn-clinic-outline-light {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.55rem;
+
+  padding: 0.7rem 1.75rem;
+
+  border: 2px solid var(--color-teal);
+
+  border-radius: 999px;
+
+  background-color: transparent;
+
+  color: var(--color-deep-blue);
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.final-cta-section .btn-clinic-outline-light i {
+  font-size: 1rem;
+
+  transition: transform 0.25s ease;
+}
+
+
+.final-cta-section .btn-clinic-outline-light:hover {
+  background-color: var(--color-teal);
+
+  color: var(--color-white);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(14, 159, 154, 0.25);
+}
+
+
+.final-cta-section .btn-clinic-outline-light:hover i {
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   FINAL CTA — MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .final-cta-section {
+    margin-top: var(--space-lg);
+  }
+
+
+  .final-cta-section .final-cta-actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+
+  .final-cta-section .btn-clinic-outline-light,
+  .final-cta-section .btn-clinic-primary {
+    width: 100%;
+
+    max-width: 320px;
+
+    justify-content: center;
+  }
+
+}

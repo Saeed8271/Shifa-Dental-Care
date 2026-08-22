@@ -1,0 +1,2344 @@
+/* =========================================================
+   COMPONENTS.CSS
+   Styles for reusable UI components used across the site.
+   Navbar, footer, mobile action bar, and appointment modal are
+   fully styled in this phase (Phase 11 Fix). Service/doctor/
+   review cards remain structural placeholders — full visual
+   design comes with the homepage in Phase 12.
+
+   NOTE: Gallery grid, lightbox, and mobile swipe slider styles
+   have been moved to gallery.css — link it alongside this file
+   wherever a gallery is used.
+
+   NOTE: Location/hours preview, contact page cards, and the
+   appointment form styles have been moved to contact.css —
+   link it alongside this file wherever those components are
+   used (contact.html and the homepage).
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Navbar — Floating Capsule (Slim)
+   --------------------------------------------------------- */
+
+.site-navbar {
+  width: auto;
+  margin: 0 auto;
+
+  background: var(--color-white);
+
+  border: 1px solid rgba(18, 59, 114, 0.12);
+  border-radius: 999px;
+
+  box-shadow:
+    0 14px 34px rgba(18, 59, 114, 0.12),
+    0 5px 14px rgba(18, 59, 114, 0.08),
+    0 2px 5px rgba(18, 59, 114, 0.07);
+
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+
+  /* `position: sticky` isn't holding on this site (some ancestor
+     is quietly breaking it), so the navbar is pinned with
+     `fixed` instead — this always stays put regardless of any
+     parent element's overflow/transform settings. Because
+     `fixed` takes the navbar out of the normal document flow,
+     the matching space is reserved separately via `body`
+     padding-top below (kept in sync precisely by JS in main.js). */
+  position: fixed;
+  top: 0.6rem;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;
+
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    width 0.35s ease,
+    top 0.35s ease,
+    margin 0.35s ease,
+    border-radius 0.35s ease;
+
+  animation: navbarEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* ---------------------------------------------------------
+   Navbar Spacing Fallback
+
+   Since the navbar is `position: fixed` (out of normal flow),
+   the page needs reserved space at the top so content doesn't
+   render underneath it. These values approximate the navbar's
+   rendered height at each breakpoint as a safe fallback for the
+   first paint — main.js (initNavbarScrollState) then measures
+   the real navbar and sets this precisely.
+   --------------------------------------------------------- */
+
+body {
+  padding-top: 78px;
+}
+
+@media (max-width: 991.98px) {
+  body {
+    padding-top: 68px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body {
+    padding-top: 58px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Navbar — Full-Width "Stuck" State
+
+   Added via JS (initNavbarScrollState in main.js) once the
+   page has been scrolled, so the floating capsule turns into
+   a full-width bar that stays fixed at the top and covers the
+   entire width of the screen on both desktop and mobile.
+
+   This selector has higher specificity than the plain
+   `.site-navbar` rule (including inside the tablet/mobile
+   breakpoints below), so one rule here is enough to override
+   the capsule shape at every screen size.
+   --------------------------------------------------------- */
+
+.site-navbar.is-scrolled {
+  top: 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+
+  box-shadow:
+    0 8px 24px rgba(18, 59, 114, 0.12),
+    0 2px 8px rgba(18, 59, 114, 0.08);
+}
+
+.site-navbar.is-scrolled:hover {
+  transform: none;
+}
+
+
+/* ---------------------------------------------------------
+   Navbar Hover — Subtle Floating Effect
+   --------------------------------------------------------- */
+
+.site-navbar:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 18px 40px rgba(18, 59, 114, 0.15),
+    0 7px 18px rgba(18, 59, 114, 0.09),
+    0 2px 6px rgba(18, 59, 114, 0.08);
+
+  border-color: rgba(18, 59, 114, 0.16);
+}
+
+
+@keyframes navbarEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Navbar Content
+   --------------------------------------------------------- */
+
+.site-navbar .container {
+  width: 100%;
+  max-width: none;
+
+  padding-left: 2.35rem;
+  padding-right: 2.35rem;
+}
+
+
+/* ---------------------------------------------------------
+   Brand
+   --------------------------------------------------------- */
+
+.site-navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+.site-navbar .navbar-brand:hover {
+  transform: translateY(-1px);
+}
+
+
+.site-navbar .brand-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+
+.site-navbar .brand-logo-img {
+  height: 47px;
+  width: auto;
+  max-width: 125px;
+
+  object-fit: contain;
+  display: block;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+.site-navbar .navbar-brand:hover .brand-logo-img {
+  transform: scale(1.04);
+}
+
+
+/* ---------------------------------------------------------
+   Brand Mark
+   --------------------------------------------------------- */
+
+.site-navbar .brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background-color: var(--color-deep-blue);
+  color: var(--color-white);
+
+  font-size: 1.1rem;
+
+  flex-shrink: 0;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.site-navbar .navbar-brand:hover .brand-mark {
+  transform: scale(1.05) rotate(-2deg);
+
+  box-shadow:
+    0 6px 14px rgba(18, 59, 114, 0.20);
+}
+
+
+@keyframes markBreathe {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(18, 59, 114, 0.16);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(18, 59, 114, 0);
+  }
+}
+
+
+.site-navbar .brand-mark {
+  animation: markBreathe 3.2s ease-in-out infinite;
+}
+
+
+.site-navbar .navbar-brand:hover .brand-mark {
+  animation-play-state: paused;
+}
+
+
+/* ---------------------------------------------------------
+   Brand Text
+   --------------------------------------------------------- */
+
+.site-navbar .brand-text {
+  display: flex;
+  flex-direction: column;
+
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.08rem;
+
+  color: var(--color-deep-blue);
+
+  line-height: 1.2;
+}
+
+
+.site-navbar .brand-text small {
+  font-family: var(--font-body);
+
+  font-weight: 500;
+  font-size: 0.69rem;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: var(--color-teal);
+}
+
+
+/* ---------------------------------------------------------
+   Navigation Links
+   --------------------------------------------------------- */
+
+.site-navbar .nav-link {
+  position: relative;
+
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1rem;
+
+  color: var(--color-text-primary);
+
+  padding: 0.55rem 0.9rem;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+
+  animation: linkEnter 0.5s ease-out both;
+}
+
+
+.site-navbar .nav-link:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.site-navbar .nav-link:nth-child(2) {
+  animation-delay: 0.10s;
+}
+
+.site-navbar .nav-link:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.site-navbar .nav-link:nth-child(4) {
+  animation-delay: 0.20s;
+}
+
+.site-navbar .nav-link:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.site-navbar .nav-link:nth-child(6) {
+  animation-delay: 0.30s;
+}
+
+.site-navbar .nav-link:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+
+@keyframes linkEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.site-navbar .nav-link:hover {
+  color: var(--color-teal);
+  transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   Animated Underline
+   --------------------------------------------------------- */
+
+.site-navbar .nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0.15rem;
+
+  width: 0;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: var(--color-teal);
+
+  transform: translateX(-50%);
+
+  transition:
+    width 0.3s ease;
+}
+
+
+.site-navbar .nav-link:hover::after,
+.site-navbar .nav-link.active::after {
+  width: 55%;
+}
+
+
+.site-navbar .nav-link.active {
+  color: var(--color-teal);
+}
+
+
+/* ---------------------------------------------------------
+   Phone
+   --------------------------------------------------------- */
+
+.navbar-phone {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.45rem;
+
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  color: var(--color-deep-blue);
+
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.navbar-phone:hover {
+  color: var(--color-teal);
+  transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   Phone Icon
+   --------------------------------------------------------- */
+
+.navbar-phone i,
+.navbar-phone svg {
+  transition:
+    transform 0.3s ease;
+}
+
+
+.navbar-phone:hover i,
+.navbar-phone:hover svg {
+  transform: rotate(-10deg) scale(1.08);
+}
+
+
+.navbar-phone {
+  position: relative;
+}
+
+
+.navbar-phone i,
+.navbar-phone svg {
+  position: relative;
+}
+
+
+.navbar-phone i::before,
+.navbar-phone svg::before {
+  content: "";
+}
+
+
+.navbar-phone:hover i,
+.navbar-phone:hover svg {
+  animation: phoneRing 0.6s ease-in-out;
+}
+
+
+@keyframes phoneRing {
+  0%, 100% {
+    transform: rotate(-10deg) scale(1.08);
+  }
+
+  25% {
+    transform: rotate(8deg) scale(1.08);
+  }
+
+  50% {
+    transform: rotate(-6deg) scale(1.08);
+  }
+
+  75% {
+    transform: rotate(4deg) scale(1.08);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Book Appointment Button
+   --------------------------------------------------------- */
+
+.site-navbar .btn {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.site-navbar .btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px rgba(18, 59, 114, 0.20);
+}
+
+
+.site-navbar .btn:active {
+  transform: translateY(0);
+}
+
+
+.site-navbar .btn::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: -60%;
+
+  width: 40%;
+  height: 100%;
+
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  transform: skewX(-20deg);
+
+  pointer-events: none;
+}
+
+
+.site-navbar .btn:hover::before {
+  animation: btnShine 0.85s ease forwards;
+}
+
+
+@keyframes btnShine {
+  0% {
+    left: -60%;
+  }
+
+  100% {
+    left: 130%;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Mobile Toggle
+   --------------------------------------------------------- */
+
+.navbar-toggler {
+  border: none;
+  padding: 0.4rem 0.55rem;
+
+  border-radius: 50%;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.navbar-toggler:hover {
+  background-color: rgba(14, 159, 154, 0.08);
+  transform: scale(1.05);
+}
+
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(14, 159, 154, 0.20);
+}
+
+
+.navbar-toggler .navbar-toggler-icon,
+.navbar-toggler svg {
+  transition: transform 0.3s ease;
+}
+
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon,
+.navbar-toggler[aria-expanded="true"] svg,
+.navbar-toggler.is-open .navbar-toggler-icon,
+.navbar-toggler.is-open svg {
+  transform: rotate(90deg);
+}
+
+
+/* ---------------------------------------------------------
+   Tablet
+   --------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+
+  .site-navbar {
+    width: calc(100% - 2rem);
+
+    top: 0.5rem;
+
+    border-radius: 2rem;
+
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+  }
+
+
+  .site-navbar .container {
+    padding-left: 1.35rem;
+    padding-right: 1.35rem;
+  }
+
+
+  .site-navbar .nav-link::after {
+    display: none;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 575.98px) {
+
+  .site-navbar {
+    width: calc(100% - 1rem);
+
+    top: 0.4rem;
+
+    border-radius: 1.5rem;
+
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+
+  .site-navbar .container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+
+  .site-navbar .brand-logo-img {
+    height: 39px;
+  }
+
+
+  .site-navbar .brand-text {
+    font-size: 0.95rem;
+  }
+
+
+  .site-navbar .brand-text small {
+    font-size: 0.58rem;
+  }
+
+
+  .site-navbar:hover {
+    transform: none;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Accessibility — Reduced Motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .site-navbar,
+  .site-navbar *,
+  .site-navbar *::after,
+  .site-navbar *::before {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Buttons — component-specific sizing tweaks
+   --------------------------------------------------------- */
+
+.btn-clinic-primary,
+.btn-clinic-secondary {
+  padding: 0.55rem 1.4rem;
+  font-size: 0.92rem;
+}
+
+
+.btn-sm-full {
+  white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------
+   Hero section
+   --------------------------------------------------------- */
+
+.hero-section {
+  width: auto;
+  margin-inline: auto;
+  margin-top: 10px;
+
+  background: linear-gradient(
+    180deg,
+    var(--color-teal-light) 0%,
+    var(--color-white) 65%
+  );
+
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-lg);
+
+  overflow: hidden;
+
+  border: 1px solid rgba(18, 59, 114, 0.16);
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 25px rgba(18, 59, 114, 0.18),
+    0 0 35px rgba(18, 59, 114, 0.10);
+
+  box-sizing: border-box;
+}
+
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+
+.hero-content {
+  flex: 1 1 58%;
+  min-width: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Hero brand mark
+   --------------------------------------------------------- */
+
+.hero-brand-mark {
+  display: block;
+
+  font-family: var(--font-heading);
+  font-weight: 700;
+
+  font-size: clamp(
+    1.25rem,
+    0.95rem + 1.2vw,
+    1.8rem
+  );
+
+  line-height: 1.15;
+
+  letter-spacing: -0.01em;
+
+  color: var(--color-deep-blue);
+
+  margin-bottom: 0.7rem;
+}
+
+
+.hero-content h1 {
+  font-size: clamp(
+    1.8rem,
+    1.4rem + 2.5vw,
+    3rem
+  );
+
+  margin-bottom: var(--space-sm);
+
+  color: var(--color-teal);
+}
+
+
+.hero-lead {
+  color: var(--color-text-muted);
+
+  font-size: 1.08rem;
+
+  max-width: 520px;
+
+  margin-bottom: var(--space-md);
+}
+
+
+.hero-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 0.85rem;
+
+  margin-bottom: var(--space-lg);
+}
+
+
+.hero-visual {
+  flex: 1 1 42%;
+
+  min-width: 0;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+/* ---------------------------------------------------------
+   Hero Image Slider
+   --------------------------------------------------------- */
+
+.hero-slider {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 420px;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-lg);
+
+  background-color: var(--color-white);
+
+  box-shadow:
+    0 12px 30px rgba(18, 59, 114, 0.16),
+    0 4px 12px rgba(18, 59, 114, 0.08);
+}
+
+
+/* ---------------------------------------------------------
+   Individual Slides
+   --------------------------------------------------------- */
+
+.hero-slide {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.hero-slide picture {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+.hero-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* ---------------------------------------------------------
+   Slider Indicators
+   --------------------------------------------------------- */
+
+.hero-slider-dots {
+  position: absolute;
+
+  left: 50%;
+  bottom: 1rem;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  z-index: 5;
+}
+
+
+.hero-slider-dots button {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.65);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.hero-slider-dots button:hover {
+  transform: scale(1.15);
+}
+
+
+.hero-slider-dots button.active {
+  width: 22px;
+
+  border-radius: 999px;
+
+  background-color: var(--color-white);
+}
+
+
+/* ---------------------------------------------------------
+   Hero trust micro-row
+   --------------------------------------------------------- */
+
+.hero-trust-row {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.6rem 1.1rem;
+
+  padding-top: var(--space-md);
+
+  border-top: 1px solid rgba(18, 59, 114, 0.08);
+}
+
+
+.hero-trust-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  font-size: 0.82rem;
+
+  color: var(--color-text-muted);
+
+  white-space: nowrap;
+}
+
+
+.hero-trust-item i {
+  color: var(--color-teal);
+
+  font-size: 0.95rem;
+}
+
+
+/* ---------------------------------------------------------
+   Subtle entrance animation
+   --------------------------------------------------------- */
+
+.fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+
+.fade-up-delay-1 {
+  animation-delay: 0.08s;
+}
+
+
+.fade-up-delay-2 {
+  animation-delay: 0.16s;
+}
+
+
+.fade-up-delay-3 {
+  animation-delay: 0.24s;
+}
+
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Placeholder page notice
+   --------------------------------------------------------- */
+
+.placeholder-page-notice {
+  min-height: 40vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding:
+    var(--space-2xl)
+    var(--space-md);
+
+  background-color: var(--color-section-bg);
+}
+
+
+.placeholder-page-notice p {
+  font-family: var(--font-heading);
+
+  font-weight: 500;
+
+  color: var(--color-text-muted);
+
+  font-size: 1.05rem;
+
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Cards
+   --------------------------------------------------------- */
+
+.clinic-card {
+  background-color: var(--color-white);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-card);
+
+  padding: var(--space-md);
+}
+
+
+/* ---------------------------------------------------------
+   Appointment modal
+   --------------------------------------------------------- */
+
+.appointment-modal .modal-content {
+  border: none;
+
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+}
+
+
+.appointment-modal .modal-header,
+.treatment-modal .modal-header {
+  background-color: var(--color-deep-blue);
+
+  border-bottom: none;
+
+  padding: 1.25rem 1.5rem;
+}
+
+
+.appointment-modal .modal-title,
+.treatment-modal .modal-title {
+  color: var(--color-white);
+
+  font-size: 1.15rem;
+
+  margin-bottom: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+}
+
+
+.appointment-modal .btn-close,
+.treatment-modal .btn-close {
+  filter:
+    invert(1)
+    grayscale(100%)
+    brightness(200%);
+}
+
+
+.appointment-modal .modal-body,
+.treatment-modal .modal-body {
+  padding: 1.5rem;
+}
+
+
+.appointment-modal .modal-intro,
+.treatment-modal .modal-intro {
+  color: var(--color-text-muted);
+
+  font-size: 0.92rem;
+
+  margin-bottom: 1.1rem;
+}
+
+
+.treatment-modal .modal-content {
+  border: none;
+
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+}
+
+
+.treatment-modal-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 50%;
+
+  background-color:
+    rgba(255, 255, 255, 0.15);
+
+  font-size: 1rem;
+
+  flex-shrink: 0;
+}
+
+
+.appointment-option {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  font-size: 0.95rem;
+}
+
+
+.appointment-notice {
+  margin-top: 1rem;
+
+  margin-bottom: 0;
+
+  text-align: center;
+
+  font-size: 0.85rem;
+
+  color: var(--color-accent-orange);
+
+  background-color: #fdf1e4;
+
+  border-radius: var(--radius-sm);
+
+  padding: 0.65rem 0.85rem;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  background-color: var(--color-deep-blue);
+  color: #d7e2ee;
+}
+
+
+/* =========================================================
+   FOOTER MAIN
+   ========================================================= */
+
+.site-footer > .container.site-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+.footer-main {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(0, 0.8fr)
+    minmax(0, 1fr);
+
+  gap: 3rem;
+
+  align-items: start;
+}
+
+
+.footer-column {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   CLINIC BRAND
+   ========================================================= */
+
+.footer-brand-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  text-decoration: none;
+
+  margin-bottom: 0.55rem;
+}
+
+
+.footer-logo {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+
+.footer-logo-img {
+  width: 36px;
+  height: 36px;
+
+  object-fit: contain;
+
+  display: block;
+
+  border-radius: 8px;
+}
+
+
+.site-footer .footer-brand {
+  color: var(--color-white);
+
+  font-size: 1.35rem;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   TAGLINE
+   ========================================================= */
+
+.site-footer .footer-tagline {
+  color: var(--color-teal-light);
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+
+  line-height: 1.4;
+
+  margin: 0 0 0.7rem;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.site-footer .footer-description {
+  color: #b9c8db;
+
+  font-size: 0.95rem;
+
+  line-height: 1.55;
+
+  max-width: 390px;
+
+  margin: 0 0 0.9rem;
+}
+
+
+/* =========================================================
+   ADDRESS
+   ========================================================= */
+
+.footer-address-block {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 0.55rem;
+
+  color: #b9c8db;
+
+  font-size: 0.95rem;
+
+  line-height: 1.55;
+}
+
+
+.footer-address-block > i {
+  color: var(--color-teal);
+
+  font-size: 1rem;
+
+  margin-top: 0.2rem;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FOOTER HEADINGS
+   ========================================================= */
+
+.site-footer .footer-heading {
+  color: var(--color-white);
+
+  font-size: 1.05rem;
+
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  margin: 0 0 0.85rem;
+}
+
+
+/* =========================================================
+   QUICK LINKS
+   ========================================================= */
+
+.site-footer .footer-links {
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.site-footer .footer-links li {
+  margin-bottom: 0.45rem;
+
+  font-size: 0.95rem;
+
+  line-height: 1.5;
+
+  color: #b9c8db;
+}
+
+
+.site-footer .footer-links a {
+  color: #b9c8db;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+
+.site-footer .footer-links a:hover {
+  color: var(--color-white);
+
+  padding-left: 3px;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.footer-contact-list {
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.footer-contact-list li {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 0.6rem;
+
+  margin-bottom: 0.65rem;
+
+  color: #b9c8db;
+
+  font-size: 0.95rem;
+
+  line-height: 1.5;
+}
+
+
+.footer-contact-list a {
+  color: #b9c8db;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+
+.footer-contact-list a:hover {
+  color: var(--color-white);
+}
+
+
+/* =========================================================
+   CONTACT ICON
+   ========================================================= */
+
+.footer-contact-icon {
+  width: 1.15rem;
+
+  min-width: 1.15rem;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-teal);
+
+  font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   SOCIAL MEDIA
+   ========================================================= */
+
+.footer-heading--social {
+  margin-top: 1rem !important;
+
+  margin-bottom: 0.7rem !important;
+}
+
+
+.footer-social {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+}
+
+
+.footer-social-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  border-radius: 50%;
+
+  background-color:
+    rgba(255, 255, 255, 0.1);
+
+  color: var(--color-white);
+
+  font-size: 1.05rem;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.footer-social-link:hover {
+  background-color: var(--color-teal);
+
+  color: var(--color-white);
+
+  transform: translateY(-2px);
+}
+
+
+.footer-social-link--pending {
+  cursor: default;
+
+  opacity: 0.5;
+}
+
+
+.footer-social-link--pending:hover {
+  background-color:
+    rgba(255, 255, 255, 0.1);
+
+  transform: none;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+  background-color: #0e2c56;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.footer-bottom .container.site-container {
+  padding-top: 0.75rem;
+
+  padding-bottom: 0.75rem;
+}
+
+
+.footer-bottom-inner {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+
+.footer-copyright,
+.footer-developer {
+  color: #93a6bd;
+
+  font-size: 0.85rem;
+
+  line-height: 1.4;
+
+  margin: 0;
+}
+
+
+.footer-developer {
+  text-align: right;
+}
+
+
+.footer-developer a {
+  color: var(--color-teal-light);
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+
+.footer-developer a:hover {
+  color: var(--color-white);
+}
+
+/* ---------------------------------------------------------
+   Mobile action bar
+   --------------------------------------------------------- */
+
+.mobile-action-bar {
+  position: fixed;
+
+  bottom: 0;
+
+  left: 0;
+
+  right: 0;
+
+  display: none;
+
+  background-color: var(--color-white);
+
+  box-shadow:
+    0 -4px 20px rgba(18, 59, 114, 0.12);
+
+  z-index: 1030;
+
+  border-top:
+    1px solid rgba(18, 59, 114, 0.08);
+}
+
+
+.mobile-action-item {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.15rem;
+
+  padding: 0.55rem 0.25rem;
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.7rem;
+
+  color: var(--color-deep-blue);
+
+  background: none;
+
+  border: none;
+
+  border-right:
+    1px solid rgba(18, 59, 114, 0.08);
+}
+
+
+.mobile-action-item:last-child {
+  border-right: none;
+}
+
+
+.mobile-action-item i {
+  font-size: 1.15rem;
+}
+
+
+.mobile-action-item--whatsapp {
+  color: #1c8a4c;
+}
+
+
+.mobile-action-item--book {
+  color: var(--color-teal);
+}
+
+
+.mobile-action-item:hover {
+  background-color: var(--color-section-bg);
+}
+
+
+/* ---------------------------------------------------------
+   Shared section heading block
+   --------------------------------------------------------- */
+
+.section-heading-block {
+  max-width: 640px;
+
+  margin:
+    0 auto
+    var(--space-lg);
+
+  text-align: center;
+}
+
+.section-eyebrow {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.section-heading-lead {
+  color: var(--color-text-muted);
+
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Treatments Preview + Full Grid
+   --------------------------------------------------------- */
+
+.service-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 1.25rem;
+
+  align-items: stretch;
+
+  margin-bottom: 0.5rem;
+}
+
+
+/* ---------------------------------------------------------
+   Treatment Card
+   --------------------------------------------------------- */
+
+.service-card {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 0;
+
+  padding: 1.25rem 1rem;
+
+  text-align: center;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  background-color: var(--color-white);
+
+  border:
+    1px solid rgba(18, 59, 114, 0.08);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    0 6px 18px rgba(18, 59, 114, 0.07);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.service-card:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(14, 159, 154, 0.30);
+
+  box-shadow:
+    0 14px 30px rgba(18, 59, 114, 0.12);
+}
+
+
+/* ---------------------------------------------------------
+   Treatment SVG Icon
+   --------------------------------------------------------- */
+
+.service-card-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+
+  margin-bottom: 0.8rem;
+
+  border-radius: 15px;
+
+  background-color:
+    var(--color-teal-light);
+
+  color:
+    var(--color-teal);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+
+/* SVG inside icon */
+
+.service-card-icon svg {
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+.service-card:hover .service-card-icon {
+  transform:
+    translateY(-2px)
+    scale(1.05);
+
+  background-color:
+    rgba(14, 159, 154, 0.14);
+}
+
+
+/* ---------------------------------------------------------
+   Treatment Title
+   --------------------------------------------------------- */
+
+.service-card-title {
+  margin: 0 0 0.65rem;
+
+  color:
+    var(--color-deep-blue);
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+
+/* ---------------------------------------------------------
+   Treatment Description
+   Hidden in Homepage Preview
+   --------------------------------------------------------- */
+
+.service-card-desc {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   View Details
+   --------------------------------------------------------- */
+
+.service-card-more {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.35rem;
+
+  margin: 0;
+
+  padding: 0;
+
+  color:
+    var(--color-teal);
+
+  font-family:
+    var(--font-heading);
+
+  font-weight: 600;
+
+  font-size: 0.8rem;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+
+.service-card-more i {
+  font-size: 0.72rem;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+.service-card:hover .service-card-more {
+  color:
+    var(--color-deep-blue);
+
+  gap: 0.5rem;
+}
+
+
+.service-card:hover .service-card-more i {
+  transform:
+    translateX(2px);
+}
+
+
+/* ---------------------------------------------------------
+   Why Choose Shifa
+   --------------------------------------------------------- */
+
+.why-choose-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.5rem;
+}
+
+
+.why-choose-card {
+  background-color: var(--color-white);
+
+  border-radius: var(--radius-lg);
+
+  padding: 1.75rem 1.5rem;
+
+  box-shadow: var(--shadow-soft);
+
+  text-align: left;
+}
+
+
+.why-choose-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 48px;
+
+  height: 48px;
+
+  border-radius: 50%;
+
+  background-color:
+    var(--color-teal-light);
+
+  color: var(--color-deep-blue);
+
+  font-size: 1.3rem;
+
+  margin-bottom: var(--space-sm);
+}
+
+
+.why-choose-card h3 {
+  font-size: 1.05rem;
+
+  margin-bottom: 0.4rem;
+}
+
+
+.why-choose-card p {
+  font-size: 0.92rem;
+
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   FAQ teaser + full accordion
+   --------------------------------------------------------- */
+
+.faq-teaser-box {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: var(--space-lg);
+
+  background:
+    linear-gradient(
+      120deg,
+      var(--color-deep-blue) 0%,
+      #1a4a8a 100%
+    );
+
+  color: var(--color-white);
+
+  border-radius: var(--radius-lg);
+
+  padding: 2.25rem 2.5rem;
+
+  flex-wrap: wrap;
+}
+
+
+.faq-teaser-box h2,
+.faq-teaser-box .section-eyebrow {
+  color: var(--color-white);
+}
+
+
+.faq-teaser-box p {
+  color: #cfe0f2;
+
+  margin-bottom: 0;
+}
+
+
+.faq-accordion .accordion-item {
+  border:
+    1px solid rgba(18, 59, 114, 0.1);
+
+  border-radius: var(--radius-md) !important;
+
+  overflow: hidden;
+
+  margin-bottom: 0.75rem;
+}
+
+
+.faq-accordion .accordion-button {
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+  color: var(--color-deep-blue);
+
+  background-color: var(--color-white);
+}
+
+
+.faq-accordion
+.accordion-button:not(.collapsed) {
+  color: var(--color-deep-blue);
+
+  background-color:
+    var(--color-teal-light);
+
+  box-shadow: none;
+}
+
+
+.faq-accordion
+.accordion-button:focus {
+  box-shadow:
+    0 0 0 3px
+    rgba(14, 159, 154, 0.2);
+}
+
+
+.faq-accordion .accordion-body {
+  color: var(--color-text-muted);
+
+  font-size: 0.94rem;
+}
+
+
+/* =========================================================
+   HOMEPAGE REVIEWS SLIDER
+   ---------------------------------------------------------
+   #reviews-grid also carries the shared ".reviews-grid"
+   multi-column grid class used by the other homepage
+   previews (services, gallery, why-choose). reviews.js
+   no longer renders individual cards straight into that
+   grid — it renders exactly two children, ".reviews-slider"
+   and ".reviews-slider-dots" — so the grid layout has to be
+   switched off here. The ID selector below always outranks
+   the shared ".reviews-grid" class, at every breakpoint,
+   without touching that shared class itself.
+
+   Everything else in this section is scoped under
+   ".reviews-slider" so it can never affect the full Reviews
+   page, which uses a completely separate ".reviews-page"
+   structure defined in reviews.css.
+
+   Base rules here are the desktop defaults (3 cards per
+   view, matching cardsPerView() in reviews.js). Tablet and
+   mobile overrides live in responsive.css, alongside the
+   rest of this component's breakpoints.
+   ========================================================= */
+
+#reviews-grid {
+  display: block;
+}
+
+
+/* ---------------------------------------------------------
+   Slider viewport
+   --------------------------------------------------------- */
+
+.reviews-slider {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   Sliding track
+   --------------------------------------------------------- */
+
+.reviews-slider-track {
+  display: flex;
+  align-items: stretch;
+
+  gap: var(--space-lg);
+}
+
+
+/* ---------------------------------------------------------
+   Individual slide (desktop: 3 per view)
+   --------------------------------------------------------- */
+
+.reviews-slider-slide {
+  flex: 0 0 calc((100% - (2 * var(--space-lg))) / 3);
+
+  min-width: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Review card
+   --------------------------------------------------------- */
+
+.reviews-slider-slide .review-card {
+  position: relative;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: var(--space-lg);
+
+  background-color: var(--color-white);
+
+  border: 1px solid rgba(13, 148, 136, 0.12);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-card);
+}
+
+
+.reviews-slider-slide .review-card::before {
+  content: "\201C";
+
+  position: absolute;
+
+  top: 0.45rem;
+  right: 1.1rem;
+
+  font-family: Georgia, serif;
+
+  font-size: 4rem;
+
+  line-height: 1;
+
+  opacity: 0.08;
+
+  pointer-events: none;
+}
+
+
+.reviews-slider-slide .review-card-stars {
+  display: flex;
+  align-items: center;
+
+  gap: 0.2rem;
+
+  margin-bottom: var(--space-sm);
+
+  font-size: 1rem;
+
+  letter-spacing: 0.08rem;
+
+  color: #f59e0b;
+}
+
+
+.reviews-slider-slide .review-card-text {
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-body);
+
+  font-size: 0.95rem;
+
+  line-height: 1.75;
+
+  flex-grow: 1;
+}
+
+
+.reviews-slider-slide .review-card-name {
+  margin: var(--space-md) 0 0;
+
+  padding-top: var(--space-sm);
+
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+
+  font-family: var(--font-heading);
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  color: var(--color-text-primary);
+}
+
+
+.reviews-slider-slide .review-card-name span {
+  font-family: var(--font-body);
+
+  font-size: 0.78rem;
+
+  font-weight: 400;
+
+  color: var(--color-text-muted);
+}
+
+
+/* ---------------------------------------------------------
+   Dot navigation
+   --------------------------------------------------------- */
+
+.reviews-slider-dots {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  margin-top: var(--space-lg);
+}
+
+
+.reviews-slider-dots button {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+  border: none;
+
+  border-radius: 50%;
+
+  background-color: rgba(13, 148, 136, 0.25);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.reviews-slider-dots button:hover {
+  transform: scale(1.15);
+}
+
+
+.reviews-slider-dots button.active {
+  width: 22px;
+
+  border-radius: 999px;
+
+  background-color: var(--color-teal);
+}
